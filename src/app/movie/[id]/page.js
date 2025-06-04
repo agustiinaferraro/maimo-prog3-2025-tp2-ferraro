@@ -12,7 +12,7 @@ export default async function MoviePage({ params }) {
   const movie = await movieData.json(); //convierte la respuesta en un objeto javascript (JSON)
 
   return ( // devuelve eel componente con los datos de la peli
-    <div className="col-span-4 bg-sky-800 flex justify-center items-center">
+    <div className="col-span-4 w-full bg-black bg-opacity-70 flex justify-center items-center">
       {/* Le pasa el objeto de la peli al componente moviecontainer */}
       <MovieContainer movie={movie} />
     </div>

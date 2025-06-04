@@ -7,6 +7,9 @@ const MovieContainer = ({ movie }) => {
 
   return (
     <div className="peliculaDetalles">
+       <Link href="/">
+        <button className="btn-back">Volver</button>
+      </Link>
       <h2>{movie.original_title}</h2>
 
         <Image
@@ -22,11 +25,7 @@ const MovieContainer = ({ movie }) => {
           <li>Fecha de estreno: {movie.release_date}</li>
           <li>Idioma original: {movie.original_language}</li>
           <li>Descripción: {movie.overview}</li>
-        </ul>
-
-      <Link href="/">
-        <button className="btn-back">Volver</button>
-      </Link>  
+        </ul>  
     </div>
   );
 };
