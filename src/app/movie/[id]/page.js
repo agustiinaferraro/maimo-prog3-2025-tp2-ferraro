@@ -2,7 +2,7 @@ import MovieContainer from "@/components/MovieContainer";
 
 //se ejecuta cuando se carga la pag de una pelicula
 export default async function MoviePage({ params }) {
-  const apiKey = "https://api.themoviedb.org/3/discover/movie?api_key=eb7e3fd7272143562cec959061b5eb32&with_genres=27";
+  const apiKey = "eb7e3fd7272143562cec959061b5eb32";
 
   const id = params.id;   //extrae el id de la URL
 
