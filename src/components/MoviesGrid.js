@@ -10,7 +10,7 @@ const MoviesGrid = ({ movies }) => {
           <Link href={`/movie/${movie.id}`}>
             <a>
               <Image
-                className="img"
+                className="img h-[450px] object-cover"
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.original_title}
                 width={300}
@@ -18,7 +18,7 @@ const MoviesGrid = ({ movies }) => {
               />
               <div className="nombre">
                 <ul>
-                  <li className="text-1xl text-white font-bold">{movie.original_title}</li>
+                  <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
                 </ul>
               </div>
             </a>
