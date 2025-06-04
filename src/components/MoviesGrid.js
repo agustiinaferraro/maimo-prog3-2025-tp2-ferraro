@@ -4,7 +4,8 @@ import Link from 'next/link';
 
 const MoviesGrid = ({ movies }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4
+     bg-white/20 backdrop-blur-md rounded-lg shadow-lg">
       {movies.map((movie) => (
         <div key={movie.id} className="imgContainer">
           <Link href={`/movie/${movie.id}`}>
