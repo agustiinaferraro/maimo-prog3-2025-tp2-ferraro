@@ -35,14 +35,14 @@ const HomeContainer = () => {
   if (!page) return <div className="text-center">No se encontró la película</div>; 
 
   return (
-    <main className="flex flex-col items-center"> {/*
+    <main className="flex flex-col"> {/*
     flex flex-col: organiza los hijos en columna
     items-center: centra horizontalmente*/}
       <section className="hero">
         <Image src="/assets/banner.jpg" alt="banner" width={1550} height={250} className="w-full h-[250px] object-cover"/>
       </section>
 
-      <div className="px-4 py-8">
+      <div className="px-4 py-8 items-center">
         <div>
           <h2 className="titulo-peliculas">Las mejores Películas</h2>
         </div>
