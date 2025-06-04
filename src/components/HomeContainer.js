@@ -35,7 +35,7 @@ const HomeContainer = () => {
   if (!page) return <div className="mx-auto h-screen text-3xl text-white text-center">No se encontró la película</div>; 
 
   return (
-    <main className="flex flex-col items-center"> {/*
+    <main className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center"> {/*
     flex flex-col: organiza los hijos en columna
     items-center: centra horizontalmente*/}
       <section>
