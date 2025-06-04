@@ -7,8 +7,8 @@ import MoviesGrid from "./MoviesGrid"
 import Image from 'next/image'
 
 const HomeContainer = () => {
-  const [page, setMovie] = useState(null);
-  const [error, setError] = useState(false);
+  const [page, setMovie] = useState(null); //aca se guardan las respuestas de las peliculas
+  const [error, setError] = useState(false); //controla si hubo algun error en la carga
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,24 +18,28 @@ const HomeContainer = () => {
         const response = await axios.get(
           'https://api.themoviedb.org/3/discover/movie?api_key=eb7e3fd7272143562cec959061b5eb32'
         );
-        setMovie(response.data);
-        setLoading(false);
+        setMovie(response.data); //guarda en data los datos de las peliculas
+        setLoading(false); //se pone en falso, deja de cargar
       } catch (error) {
         console.log('Error en la API:', error);
-        setError(true);
-        setLoading(false);
+        setError(true); //si hay un error, devuelve verdadero
+        setLoading(false); //deja de cargar
       }
     };
 
-    fetchMovie();
-  }, []);
+    fetchMovie(); //llama a la funcion cuando se ejecuta el componente 
+  }, []); // [] hace que solo se ejecute una vez al inicio
 
-  if (loading) return <Loading />;
-  if (error) return <div>Hubo un error</div>;
-  if (!page) return <div>No se encontró la película</div>;
+  if (loading) return <Loading />; //si carga muestra el icono del componente loading
+  if (error) return <div className="text-red-600 text-center">Hubo un error</div>; //si hay un error se muestra en rojo (text re) y se centa con text center
+  if (!page) return <div className="text-center">No se encontró la película</div>; 
 
   return (
-    <main>
+    <main className="flex flex-col items-center px-4 py-8"> {/*
+    flex flex-col: organiza los hijos en columna
+    items-center: centra horizontalmente
+    px-4 py-8: padding horizontal 1rem, vertical 2rem*/}
+    
       <section className="hero">
         <Image src="/assets/banner.jpg" alt="banner" width={1550} height={250} />
       </section>
