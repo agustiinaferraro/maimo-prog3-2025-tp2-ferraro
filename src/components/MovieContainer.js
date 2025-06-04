@@ -6,9 +6,9 @@ const MovieContainer = ({ movie }) => {
     if (!movie) return <Loading />;
 
   return (
-    <div className="peliculaDetalles">
+    <div className="flex">
        <Link href="/">
-        <button className="text-2xl text-white py-6">‹</button>
+        <button className="text-5xl text-white py-6">‹</button>
       </Link>
       <h2>{movie.original_title}</h2>
 
