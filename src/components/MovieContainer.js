@@ -8,7 +8,7 @@ const MovieContainer = ({ movie }) => {
   return (
     <div className="peliculaDetalles">
        <Link href="/">
-        <button className="btn-back">Volver</button>
+        <button className="text-2xl text-white py-6">‹</button>
       </Link>
       <h2>{movie.original_title}</h2>
 
@@ -19,13 +19,12 @@ const MovieContainer = ({ movie }) => {
           width={300} 
           priority
         />
+        <ul className="text-1xl text-white py-6">
+          <li><span className="font-bold">Fecha de estreno:</span> {movie.release_date}</li>
+          <li><span className="font-bold">Idioma original:</span> {movie.original_language}</li>
+          <li><span className="font-bold">Descripción:</span> {movie.overview}</li>
+        </ul>
 
-   
-        <ul>
-          <li>Fecha de estreno: {movie.release_date}</li>
-          <li>Idioma original: {movie.original_language}</li>
-          <li>Descripción: {movie.overview}</li>
-        </ul>  
     </div>
   );
 };
