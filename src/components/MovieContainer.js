@@ -1,5 +1,6 @@
 import Loading from "./Loading";
 import Link from 'next/link';
+import Image from "next/image";
 
 const MovieContainer = ({ movie }) => {
     if (!movie) return <Loading />;
@@ -7,6 +8,14 @@ const MovieContainer = ({ movie }) => {
   return (
     <div className="peliculaDetalles">
       <h2>{movie.original_title}</h2>
+
+        <Image
+          className="img"
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.original_title}
+          width={300} 
+          priority
+        />
 
    
         <ul>
