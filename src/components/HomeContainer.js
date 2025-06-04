@@ -35,7 +35,8 @@ const HomeContainer = () => {
   if (!page) return <div className="text-center">No se encontró la película</div>; 
 
   return (
-    <main className="items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"> {/*
+    <main className="flex flex-col items-center"> {/*
+    flex flex-col: organiza los hijos en columna
     items-center: centra horizontalmente*/}
       <section>
         <Image src="/assets/banner.jpg" alt="banner" width={1550} height={250} className="h-[250px] object-cover rounded-none"/>
