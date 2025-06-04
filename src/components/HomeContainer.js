@@ -38,7 +38,7 @@ const HomeContainer = () => {
     <main className="flex flex-col items-center"> {/*
     flex flex-col: organiza los hijos en columna
     items-center: centra horizontalmente*/}
-      <section className="w-full">
+      <section>
         <Image src="/assets/banner.jpg" alt="banner" width={1550} height={250} className="h-[250px] object-cover rounded-none"/>
       </section>
 
