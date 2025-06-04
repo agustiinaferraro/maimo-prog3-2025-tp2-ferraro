@@ -41,7 +41,7 @@ const HomeContainer = () => {
     px-4 py-8: padding horizontal 1rem, vertical 2rem*/}
     
       <section className="hero">
-        <Image src="/assets/banner.jpg" alt="banner" width={1550} height={250} />
+        <Image src="/assets/banner.jpg" alt="banner" width={1550} height={250} className="w-full h-[250px] object-cover"/>
       </section>
 
       <div className="HomeContainer">
