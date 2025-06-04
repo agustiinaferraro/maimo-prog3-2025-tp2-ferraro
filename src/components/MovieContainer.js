@@ -9,13 +9,16 @@ const MovieContainer = ({ movie }) => {
     <div className="peliculaDetalles">
       <h2>{movie.original_title}</h2>
 
-        <Image
-          className="img"
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.original_title}
-          width={300} 
-          priority
-        />
+        {movie.poster_path && (
+          <Image
+            className="img"
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.original_title}
+            width={300}
+            height={450} // agregalo por si falta
+            priority
+          />
+        )}
 
    
         <ul>
