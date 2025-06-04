@@ -31,8 +31,8 @@ const HomeContainer = () => {
   }, []); // [] hace que solo se ejecute una vez al inicio
 
   if (loading) return <Loading />; //si carga muestra el icono del componente loading
-  if (error) return <div className="text-red-600 text-center">Hubo un error</div>; //si hay un error se muestra en rojo (text re) y se centa con text center
-  if (!page) return <div className="text-center">No se encontró la película</div>; 
+  if (error) return <div className="mx-auto h-screen text-3xl text-white text-center">Hubo un error</div>;
+  if (!page) return <div className="mx-auto h-screen text-3xl text-white text-center">No se encontró la película</div>; 
 
   return (
     <main className="flex flex-col items-center"> {/*
