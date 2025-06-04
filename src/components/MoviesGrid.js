@@ -18,7 +18,7 @@ const MoviesGrid = ({ movies }) => {
               />
               <div className="nombre">
                 <ul>
-                  <li className="text-2xl text-white font-bold">{movie.original_title}</li>
+                  <li className="text-1xl text-white font-bold">{movie.original_title}</li>
                 </ul>
               </div>
             </a>
