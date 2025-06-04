@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const MoviesGrid = ({ movies }) => {
   return (
-    <div className="MoviesGrid">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
       <div className="grilla">
         {movies.map((movie) =>   
         <div key={movie.id} className="imgContainer">

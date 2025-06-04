@@ -42,7 +42,7 @@ const HomeContainer = () => {
         <Image src="/assets/banner.jpg" alt="banner" width={1550} height={250} className="h-[250px] object-cover rounded-none"/>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 py-8 items-center">
+      <div className="px-4 py-8 items-center">
         <div>
           <h2 className="text-center text-3xl text-white font-bold">Las mejores Películas</h2>
         </div>
