@@ -23,9 +23,9 @@ const MovieContainer = ({ movie }) => {
             priority
           />
           <ul className="text-1xl text-white py-6 px-6">
-            <li><span className="font-bold">Fecha de estreno:</span> {movie.release_date}</li>
-            <li><span className="font-bold">Idioma original:</span> {movie.original_language}</li>
-            <li><span className="font-bold">Descripción:</span> {movie.overview}</li>
+            <li><span className="font-bold py-6">Fecha de estreno:</span> {movie.release_date}</li>
+            <li><span className="font-bold py-6">Idioma original:</span> {movie.original_language}</li>
+            <li><span className="font-bold py-6">Descripción:</span> {movie.overview}</li>
           </ul>
       </div>
     </div>
