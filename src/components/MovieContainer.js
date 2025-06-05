@@ -6,7 +6,7 @@ const MovieContainer = ({ movie }) => {
     if (!movie) return <Loading />;
 
   return (
-    <div className="flex justify-center max-w-md w-full px-4">
+    <div className="w-[80%] max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-6 py-6">
        <Link href="/">
         <button className="text-5xl text-white py-6">‹</button>
       </Link>
