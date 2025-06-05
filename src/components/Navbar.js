@@ -13,7 +13,6 @@ const Navbar = () => {
             <ul className="flex gap-6">
                 <li href="/">Home</li>
                 <li>Generos</li>
-                
             </ul>
         </nav>
     </div>
