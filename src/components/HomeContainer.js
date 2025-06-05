@@ -39,7 +39,7 @@ const HomeContainer = () => {
     flex flex-col: organiza los hijos en columna
     items-center: centra horizontalmente*/}
       <section>
-        <Image src="/assets/banner.jpg" alt="banner" width={1550} height={250} className="h-[250px] object-cover rounded-none"/>
+        <Image src="/assets/banner.png" alt="banner" width={1550} height={250} className="h-[250px] object-cover rounded-none"/>
       </section>
 
       <div className="px-4 py-8 items-center">
