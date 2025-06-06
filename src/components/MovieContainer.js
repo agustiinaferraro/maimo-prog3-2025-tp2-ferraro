@@ -8,7 +8,7 @@ const MovieContainer = ({ movie }) => {
   return (
     <div className="w-[80%] max-w-5xl mx-auto ">
       <Link href="/">
-        <button className="text-5xl text-white py-6">‹</button>
+        <button className="text-5xl text-white py-6 hover:text-blue-500 active:bg-blue-600">‹</button>
       </Link>
     
       <div className="flex flex-col md:flex-row items-center gap-6 py-6">
