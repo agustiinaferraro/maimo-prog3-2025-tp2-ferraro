@@ -11,11 +11,11 @@ const Navbar = () => {
         </div>
 
         <nav> 
-            <ul className="flex gap-6 text-white-600 hover:text-blue-500 active:bg-blue-600">
-              <li>
+            <ul className="flex gap-6 text-white-600">
+              <li className=" hover:text-blue-500 active:bg-blue-600">
                 <Link href="/">Home</Link>
               </li>                
-              <li>Generos</li>
+              <li className=" hover:text-blue-500 active:bg-blue-600">Generos</li>
             </ul>
         </nav>
     </div>
