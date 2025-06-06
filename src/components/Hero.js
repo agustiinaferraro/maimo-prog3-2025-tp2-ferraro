@@ -21,23 +21,6 @@ const Hero = ({movies}) => {
             <h2 className="text-5xl"> {featuredMovie.title} </h2>
             <p className="max-w-[500px]"> {featuredMovie.overview} </p>
         </div>
-        
-        <div className="movies">
-            {
-              movies.map((movie)=>
-              (<div key={movie.id}> 
-                <h3>{movie.title}</h3>
-                  <div>
-                    <Image src={`${IMAGE_BASE}/${movie.poster_path}`}
-                    width={200}
-                    height={100}
-                    alt={movie.title}
-                    />
-                  </div>
-
-              </div>
-              ))}
-        </div>
     </div>
 
     </section>
