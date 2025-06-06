@@ -11,7 +11,7 @@ const Navbar = () => {
         </div>
 
         <nav> 
-            <ul className="flex gap-6 bg-blue-600 hover:bg-blue-700 active:bg-blue-800">
+            <ul className="flex gap-6 text-white-600 hover:text-blue-500 active:bg-blue-600">
               <li>
                 <Link href="/">Home</Link>
               </li>                
