@@ -40,7 +40,7 @@ const HomeContainer = () => {
     flex flex-col: organiza los hijos en columna
     items-center: centra horizontalmente*/}
      
-    {!loading && <Hero movies={movies} />} 
+    {!loading && <Hero movies={movies.results} />} 
     {loading && <Loading />}
 
       <div className="px-4 py-8 items-center">
