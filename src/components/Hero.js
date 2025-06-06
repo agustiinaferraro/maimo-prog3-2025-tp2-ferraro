@@ -11,7 +11,7 @@ const Hero = ({movies}) => {
 
     <section 
     style=
-    {{backgroumdImage: `url(${IMAGE_BASE}/${featuredMovie.backdrop_path})`,
+    {{backgroundImage: `url(${IMAGE_BASE}/${featuredMovie.backdrop_path})`,
     }} 
     className={`w-full h-[600px] bg-cover bg-no-repeat bg-center`}>
         
