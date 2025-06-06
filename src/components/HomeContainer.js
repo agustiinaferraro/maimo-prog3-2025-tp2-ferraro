@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import Loading from "./Loading"
 import MoviesGrid from "./MoviesGrid"
+import Hero from "./Hero";
 import Image from 'next/image'
 
 const HomeContainer = () => {
-  const [page, setMovie] = useState(null); //aca se guardan las respuestas de las peliculas
+  const [movies, setMovie] = useState(null); //aca se guardan las respuestas de las peliculas
   const [error, setError] = useState(false); //controla si hubo algun error en la carga
   const [loading, setLoading] = useState(true);
 
@@ -32,21 +33,21 @@ const HomeContainer = () => {
 
   if (loading) return <Loading />; //si carga muestra el icono del componente loading
   if (error) return <div className="mx-auto h-screen text-3xl text-white text-center">Hubo un error</div>;
-  if (!page) return <div className="mx-auto h-screen text-3xl text-white text-center">No se encontró la película</div>; 
+  if (!movies) return <div className="mx-auto h-screen text-3xl text-white text-center">No se encontró la película</div>; 
 
   return (
     <main className="flex flex-col items-center"> {/*
     flex flex-col: organiza los hijos en columna
     items-center: centra horizontalmente*/}
-      <section>
-        <Image src="/assets/banner.png" alt="banner" width={1550} height={450} className="md:h-[400px] lg:h-[500px] h-[250px] object-cover rounded-none"/>
-      </section>
+     
+    {!loading && <Hero movies={movies} />} 
+    {loading && <Loading />}
 
       <div className="px-4 py-8 items-center">
         <div>
           <h2 className="text-center text-3xl text-white font-bold  py-6">Las mejores Películas</h2>
         </div>
-        <MoviesGrid movies={page.results} />
+        <MoviesGrid movies={movies.results} />
       </div>
     </main>
   );
