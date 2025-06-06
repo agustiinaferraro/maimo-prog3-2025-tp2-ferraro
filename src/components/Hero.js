@@ -2,11 +2,21 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Loading from "./Loading";
 
 const Hero = ({movies}) => {
 
     const [featuredMovie, setFeaturedMovie] = useState(movies[0]);
     const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`
+    
+    useEffect(() => {
+    if (movies && movies.length > 0) {
+      setFeaturedMovie(movies[0]);
+    }
+  }, [movies]);
+
+  if (!featuredMovie) return <Loading />;  // Mostrar loading se cargan los datos
+    
     return (
 
     <section 
