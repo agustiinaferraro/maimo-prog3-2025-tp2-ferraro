@@ -9,7 +9,7 @@ const MoviesGrid = ({ movies }) => {
       w-full md:w-4/5 
       mx-auto">
       {movies.map((movie) => (
-        <div key={movie.id} className="imgContainer">
+        <div key={movie.id} className="transition-transform duration-300 hover:scale-105 active:scale-95">
           <Link href={`/movie/${movie.id}`}>
             <a>
               <Image
