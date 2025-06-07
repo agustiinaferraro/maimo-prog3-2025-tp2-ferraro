@@ -1,11 +1,13 @@
 'use client'
 
 import { useState, useEffect} from "react";
+import { useRouter } from "next/navigation"; 
 import Loading from "./Loading";
 
 const Hero = ({movies}) => {
 
     const [featuredMovie, setFeaturedMovie] = useState(movies[0]);
+    const router = useRouter();
     const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`
     
     const handleMovieClick= () => {
