@@ -10,9 +10,9 @@ const MovieContainer = ({ movie }) => {
     <section style=
     {{backgroundImage: `url(${IMAGE_BASE}/${movie.backdrop_path})`,
     }} 
-    className={`w-full h-[600px] bg-cover bg-no-repeat bg-center`}
+    className={`w-full h-[600px] bg-cover bg-no-repeat bg-center max-w-5xl mx-auto py-10`}
     >
-      <div className=" h-full bg-black/60 w-[80%] max-w-5xl mx-auto py-10">
+      <div className=" h-full bg-black/60">
         <div className="w-[80%] max-w-5xl mx-auto ">
           <Link href="/">
             <button className="text-7xl text-white py-6 hover:text-blue-500 active:text-blue-600" >‹</button>
