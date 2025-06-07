@@ -45,7 +45,7 @@ const HomeContainer = () => {
 
       <div className="px-4 py-8 items-center">
         <div>
-          <h2 className="text-center text-3xl text-white font-bold  py-6">Las mejores Películas</h2>
+          <h2 className="text-left px-6 text-3xl text-white font-bold  py-6">Principales</h2>
         </div>
         <MoviesGrid movies={movies.results} />
       </div>

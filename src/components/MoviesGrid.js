@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 const MoviesGrid = ({ movies }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4
-     bg-white/20 backdrop-blur-md rounded-lg shadow-lg p-10 md:p-10 
+    <div className="grid grid-cols-1 md:grid-cols-6 gap-6 px-4
+     p-10 md:p-10 
       w-full md:w-4/5 
       mx-auto">
       {movies.map((movie) => (
