@@ -5,12 +5,12 @@ import Image from "next/image";
 const MovieContainer = ({ movie }) => {
   if (!movie) return <Loading />;
   const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`
-  
+
   return (
     <section style=
     {{backgroundImage: `url(${IMAGE_BASE}/${movie.backdrop_path})`,
     }} 
-    className={`w-full h-[600px] bg-cover bg-no-repeat bg-center`}
+    className={`w-full h-[600px] bg-cover bg-no-repeat bg-center bg-black/60`}
     >
       <div className="w-[80%] max-w-5xl mx-auto ">
         <Link href="/">
@@ -29,7 +29,7 @@ const MovieContainer = ({ movie }) => {
               priority
             />
             <ul className=" text-white py-6 px-6">
-              <li><span className="text-7xl font-bold py-6">Fecha de estreno:</span> {movie.original_title}</li>
+              <li className="text-7xl font-bold py-6"> {movie.original_title}</li>
               <li><span className="text-1xl font-bold py-6">Fecha de estreno:</span> {movie.release_date}</li>
               <li><span className="text-1xl font-bold py-6">Idioma original:</span> {movie.original_language}</li>
               <li><span className="text-1xl font-bold py-6">Descripción:</span> {movie.overview}</li>
