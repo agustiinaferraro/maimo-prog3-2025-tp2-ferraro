@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect} from "react";
-import Image from "next/image";
 import Loading from "./Loading";
 
 const Hero = ({movies}) => {
@@ -17,9 +16,10 @@ const Hero = ({movies}) => {
     if (movies && movies.length > 0) {
       setFeaturedMovie(movies[0]);
     }
-  }, [movies]);
 
-  if (!featuredMovie) return <Loading />;  // Mostrar loading se cargan los datos
+    }, [movies]);
+
+    if (!featuredMovie) return <Loading />;  // Mostrar loading se cargan los datos
     
     return (
 
@@ -28,7 +28,7 @@ const Hero = ({movies}) => {
     {{backgroundImage: `url(${IMAGE_BASE}/${featuredMovie.backdrop_path})`,
     }} 
     className={`w-full h-[600px] bg-cover bg-no-repeat bg-center cursor-pointer`}
-    onclick={handleMovieClick}
+    onClick={handleMovieClick}
     >
 
     <div className="text-white content h-full flex flex-col justify-center items-start px-[50px] bg-black/60">
