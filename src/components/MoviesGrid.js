@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 
 const MoviesGrid = ({ movies }) => {
   const router = useRouter();
-  const handleMovieClick= () => {
-    router.push(`/movie/${movies.id}`); //router es el objeto que maneja la navegacion y push cambia la ruta actual a la que se le pasa
-  }
+  const handleMovieClick = (id) => {
+    router.push(`/movie/${id}`);
+  };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-6 gap-6 w-full mx-auto">
