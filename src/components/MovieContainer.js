@@ -5,16 +5,16 @@ import Image from "next/image";
 const MovieContainer = ({ movie }) => {
   if (!movie) return <Loading />;
   const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`
-
+  
   return (
     <section style=
-    {{backgroundImage: `url(${IMAGE_BASE}/${featuredMovie.backdrop_path})`,
+    {{backgroundImage: `url(${IMAGE_BASE}/${movie.backdrop_path})`,
     }} 
     className={`w-full h-[600px] bg-cover bg-no-repeat bg-center`}
     >
       <div className="w-[80%] max-w-5xl mx-auto ">
         <Link href="/">
-          <button className="text-7xl text-white py-6 hover:text-blue-500 active:text-blue-600">‹</button>
+          <button className="text-7xl text-white py-6 hover:text-blue-500 active:text-blue-600" >‹</button>
         </Link>
       
         <div className="flex flex-col md:flex-row items-center gap-6 py-6">
