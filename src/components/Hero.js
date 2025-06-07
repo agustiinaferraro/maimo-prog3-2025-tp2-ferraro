@@ -3,7 +3,6 @@
 import { useState, useEffect} from "react";
 import Image from "next/image";
 import Loading from "./Loading";
-import Link from "next/link";
 
 const Hero = ({movies}) => {
 
@@ -11,7 +10,7 @@ const Hero = ({movies}) => {
     const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`
     
     const handleMovieClick= () => {
-      console.log('clickeaste una peli')
+      router.push(`/movies/${featuredMovie.id}`); //router es el objeto que maneja la navegacion y push cambia la ruta actual a la que se le pasa
     }
 
     useEffect(() => {
@@ -28,16 +27,14 @@ const Hero = ({movies}) => {
     style=
     {{backgroundImage: `url(${IMAGE_BASE}/${featuredMovie.backdrop_path})`,
     }} 
-    className={`w-full h-[600px] bg-cover bg-no-repeat bg-center`}>
+    className={`w-full h-[600px] bg-cover bg-no-repeat bg-center cursor-pointer`}
+    onclick={handleMovieClick}
+    >
 
     <div className="text-white content h-full flex flex-col justify-center items-start px-[50px] bg-black/60">
         <div className="content" onClick={handleMovieClick}>
-          <Link href={`/movies/${featuredMovie.id}`}>
-            <a>
-              <h2 className="text-5xl"> {featuredMovie.title} </h2>
-              <p className="max-w-[500px]"> {featuredMovie.overview} </p>
-            </a>
-          </Link>
+            <h2 className="text-5xl"> {featuredMovie.title} </h2>
+            <p className="max-w-[500px]"> {featuredMovie.overview} </p>
         </div>
     </div>
 
