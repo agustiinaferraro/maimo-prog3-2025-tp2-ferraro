@@ -43,7 +43,7 @@ const HomeContainer = () => {
     {!loading && <Hero movies={movies.results} />} 
     {loading && <Loading />}
 
-      <div className="px-6 py-8 items-center md:w-5/5 overflow-x-hidden">
+      <div className="px-6 py-8 items-center md:w-4/5 overflow-x-hidden">
         <div>
           <h2 className="text-left text-3xl text-white font-bold  py-6">Principales</h2>
         </div>

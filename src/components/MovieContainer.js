@@ -12,16 +12,13 @@ const MovieContainer = ({ movie }) => {
     }} 
     className={`w-full h-[600px] bg-cover bg-no-repeat bg-center`}
     >
-      <div className=" h-full bg-black/60">
+      <div className=" h-full bg-black/60 w-[80%] max-w-5xl mx-auto py-10">
         <div className="w-[80%] max-w-5xl mx-auto ">
           <Link href="/">
             <button className="text-7xl text-white py-6 hover:text-blue-500 active:text-blue-600" >‹</button>
           </Link>
         
           <div className="flex flex-col md:flex-row items-center gap-6 py-6">
-
-            <h2>{movie.original_title}</h2>
-
               <Image
                 className="img"
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
