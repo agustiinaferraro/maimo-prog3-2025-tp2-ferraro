@@ -11,7 +11,7 @@ const Hero = ({movies}) => {
     const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`
     
     const handleMovieClick= () => {
-      router.push(`/movies/${featuredMovie.id}`); //router es el objeto que maneja la navegacion y push cambia la ruta actual a la que se le pasa
+      router.push(`/movie/${featuredMovie.id}`); //router es el objeto que maneja la navegacion y push cambia la ruta actual a la que se le pasa
     }
 
     useEffect(() => {
