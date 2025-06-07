@@ -6,7 +6,7 @@ const MoviesGrid = ({ movies }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-6 gap-6 px-4
      p-10 md:p-10 
-      w-full md:w-4/5 
+      w-full 
       mx-auto">
       {movies.map((movie) => (
         <div key={movie.id} className="transition-transform duration-300 hover:scale-105 active:scale-95">
