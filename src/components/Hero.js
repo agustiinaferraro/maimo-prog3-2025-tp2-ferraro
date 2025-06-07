@@ -3,6 +3,7 @@
 import { useState, useEffect} from "react";
 import Image from "next/image";
 import Loading from "./Loading";
+import Link from "next/link";
 
 const Hero = ({movies}) => {
 
@@ -30,10 +31,13 @@ const Hero = ({movies}) => {
     className={`w-full h-[600px] bg-cover bg-no-repeat bg-center`}>
 
     <div className="text-white content h-full flex flex-col justify-center items-start px-[50px] bg-black/60">
-        <div className="content">
-            onClick={handleMovieClick}
-            <h2 className="text-5xl"> {featuredMovie.title} </h2>
-            <p className="max-w-[500px]"> {featuredMovie.overview} </p>
+        <div className="content" onClick={handleMovieClick}>
+          <Link href={`/movies/${featuredMovie.id}`}>
+            <a>
+              <h2 className="text-5xl"> {featuredMovie.title} </h2>
+              <p className="max-w-[500px]"> {featuredMovie.overview} </p>
+            </a>
+          </Link>
         </div>
     </div>
 
