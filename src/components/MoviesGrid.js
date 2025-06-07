@@ -13,7 +13,7 @@ const MoviesGrid = ({ movies }) => {
     <div className="grid grid-cols-1 md:grid-cols-6 gap-6 w-full mx-auto">
       {movies.map((movie) => (
         <div key={movie.id} className="transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
-        onClick={handleMovieClick}>
+        onClick={() => handleMovieClick(movie.id)}>
               <Image
                 className="img h-[450px] object-cover"
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
