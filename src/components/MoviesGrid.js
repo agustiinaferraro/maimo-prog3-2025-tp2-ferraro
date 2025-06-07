@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const MoviesGrid = ({ movies }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6 gap-6 px-4
+    <div className="grid grid-cols-1 md:grid-cols-6 gap-6
      p-10 md:p-10 
       w-full 
       mx-auto">
