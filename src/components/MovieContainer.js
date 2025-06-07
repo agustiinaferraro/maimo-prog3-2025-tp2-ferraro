@@ -10,7 +10,7 @@ const MovieContainer = ({ movie }) => {
     <section style=
     {{backgroundImage: `url(${IMAGE_BASE}/${movie.backdrop_path})`,
     }} 
-    className={`w-full h-[600px] bg-cover bg-no-repeat bg-center py-10`}
+    className={`w-full h-[600px] bg-cover bg-no-repeat bg-center mx-auto`}
     >
       <div className=" h-full bg-black/60">
         <div className="w-[80%] max-w-5xl mx-auto ">
