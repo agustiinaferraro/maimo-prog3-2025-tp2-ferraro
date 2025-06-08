@@ -9,8 +9,11 @@ import Image from 'next/image'
 
 const HomeContainer = () => {
   const [movies, setMovie] = useState(null); //aca se guardan las respuestas de las peliculas
-  const [error, setError] = useState(false); //controla si hubo algun error en la carga
+  const [error, setError] = useState(false); //controla si hubo algun error en la ca;rga
   const [loading, setLoading] = useState(true);
+  const principales = movies.results.slice(0,7);
+  const destacadas = movies.results.slice(8,14);
+  const recomendadas = movies.results.slice(15,23);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -46,8 +49,14 @@ const HomeContainer = () => {
       <div className="px-6 py-8 items-center md:w-5/5 overflow-x-hidden">
         <div>
           <h2 className="text-left text-3xl text-white font-bold  py-6">Principales</h2>
+          <MoviesGrid movies={principales} />
+
+          <h2 className="text-left text-3xl text-white font-bold  py-6">Destacadas</h2>
+          <MoviesGrid movies={destacadas} />
+
+          <h2 className="text-left text-3xl text-white font-bold  py-6">Recomendadas</h2>
+          <MoviesGrid movies={recomendadas} />
         </div>
-        <MoviesGrid movies={movies.results} />
       </div>
     </main>
   );
