@@ -30,22 +30,22 @@ const MoviesGrid = ({ movies }) => {
 
   return (
 
-    <div className="relative w-full"> {/* contenedor padre para poder posicionar las flechas */}
+    <div className="relative w-full group"> {/* contenedor padre para poder posicionar las flechas */}
 
-      {/* Flecha izquierda afuera del scroll */}
+      {/* Flecha izquierda sobre el contenido pero solo visible al hacer hover */}
       <button
         onClick={scrollLeft}
-        className="cursor-pointer hover:text-blue-500 active:text-blue-600 absolute left-0 top-1/2 -translate-y-1/2 text-white p-2 rounded-full z-20 bg-black bg-opacity-50"
+        className="hidden group-hover:flex items-center justify-center text-white absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full z-20 shadow-lg hover:scale-110 transition"
         aria-label="Scroll Left"
       >
         &#8592;
       </button>
-          
-      {/* Contenedor scroll con gap y scrollbar oculto */}
+
+      {/* Contenedor scroll con gap y ancho mínimo forzado para que las pelis no se achiquen */}
       <div
-        ref={scrollRef} 
-        className="flex gap-4 overflow-x-auto scrollbar-hide px-4 mx-12 w-full"
-        style={{ scrollBehavior: 'smooth' }}
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-auto scrollbar-hide px-4 w-full"
+        style={{ minWidth: `${movies.length * 220}px` }} // Fuerza el ancho min para que el contenedor sea más ancho que el padre y aparezca el scroll horizontal
       >
         {movies.map((movie) => (
           <div
@@ -69,15 +69,15 @@ const MoviesGrid = ({ movies }) => {
         ))}
       </div>
 
-      {/* Flecha derecha afuera del scroll */}
+      {/* Flecha derecha sobre el contenido pero solo visible al hacer hover */}
       <button
         onClick={scrollRight}
-        className="cursor-pointer hover:text-blue-500 active:text-blue-600 absolute right-0 top-1/2 -translate-y-1/2 text-white p-2 rounded-full z-20 bg-black bg-opacity-50"
+        className="hidden group-hover:flex items-center justify-center text-white absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full z-20 shadow-lg hover:scale-110 transition"
         aria-label="Scroll Right"
       >
         &#8594;
       </button>
-
+      
     </div>
   );
 };
