@@ -6,12 +6,11 @@ import { useRef } from "react"; // useRef para poder crear la referencia
 
 const MoviesGrid = ({ movies }) => {
 
+  const scrollRef = useRef(null); // referencia, inicialmente sin apuntar a nada (o sea null)
+
   const scrollLeft = () => {
-    if (scrollRef.current) { 
-      // scrollRef es una referencia para acceder al div, con el current agarro al div, sin eso agarro una caja vacía
-      // current es la propiedad de ref que permite acceder al objeto real (div en este caso)
-      scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' }); 
-      // scrollBy mueve horizontalmente 300 px, el smooth hace una animación
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' }); // scrollBy mueve horizontalmente 300 px, el smooth hace una animación
     }
   };
 
@@ -21,36 +20,34 @@ const MoviesGrid = ({ movies }) => {
     }
   };
 
-  const scrollRef = useRef(null); // referencia, inicialmente sin apuntar a nada o sea null)
-
   const router = useRouter();
   const handleMovieClick = (id) => {
     router.push(`/movie/${id}`);
   };
 
   return (
+    // contenedor padre, relativo para posicionar las flechas; hover:group para que las flechas aparezcan al hacer hover
+    <div className="relative w-full group">
 
-    <div className="relative w-full group"> {/* contenedor padre para poder posicionar las flechas */}
-
-      {/* Flecha izquierda sobre el contenido pero solo visible al hacer hover */}
+      {/* Flecha izquierda, oculta por defecto y visible solo al hacer hover en el contenedor */}
       <button
         onClick={scrollLeft}
-        className="hidden group-hover:flex items-center justify-center text-white absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full z-20 shadow-lg hover:scale-110 transition"
+        className="hidden group-hover:flex items-center justify-center absolute left-0 top-1/2 transform -translate-y-1/2 text-white shadow-md hover:shadow-lg p-2 z-10 transition-opacity duration-300"
         aria-label="Scroll Left"
       >
         &#8592;
       </button>
 
-      {/* Contenedor scroll con gap y ancho mínimo forzado para que las pelis no se achiquen */}
+      {/* Contenedor scrollable horizontalmente */}
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto scrollbar-hide px-4 w-full"
-        style={{ minWidth: `${movies.length * 220}px` }} // Fuerza el ancho min para que el contenedor sea más ancho que el padre y aparezca el scroll horizontal
+        className="flex gap-4 overflow-x-auto px-4 py-2 scrollbar-hide"
       >
         {movies.map((movie) => (
+          // cada película tiene ancho fijo para que no cambie con la cantidad
           <div
             key={movie.id}
-            className="min-w-[200px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+            className="w-[200px] flex-shrink-0 transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             onClick={() => handleMovieClick(movie.id)}
           >
             <Image
@@ -58,6 +55,7 @@ const MoviesGrid = ({ movies }) => {
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.original_title}
               width={300}
+              height={450}
               priority
             />
             <div className="nombre">
@@ -69,15 +67,15 @@ const MoviesGrid = ({ movies }) => {
         ))}
       </div>
 
-      {/* Flecha derecha sobre el contenido pero solo visible al hacer hover */}
+      {/* Flecha derecha*/}
       <button
         onClick={scrollRight}
-        className="hidden group-hover:flex items-center justify-center text-white absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full z-20 shadow-lg hover:scale-110 transition"
+        className="hidden group-hover:flex items-center justify-center absolute right-0 top-1/2 transform -translate-y-1/2 text-white shadow-md hover:shadow-lg p-2 z-10 transition-opacity duration-300"
         aria-label="Scroll Right"
       >
         &#8594;
       </button>
-      
+
     </div>
   );
 };
