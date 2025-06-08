@@ -33,13 +33,15 @@ const MoviesGrid = ({ movies }) => {
     {/* Flecha izquierda */}
     <button
       onClick={scrollLeft}
-      className="hover:text-blue-500 active:text-blue-600 absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
+      className="cursor-pointer hover:text-blue-500 active:text-blue-600 absolute left-0 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full z-10"
       aria-label="Scroll Left"
     >
       &#8592;
     </button>
         
-      <div ref={scrollRef} className="flex gap-4 overflow-x-auto scrollbar-hide px-1"> {/*el ref permite acceder al div y hacer el scroll*/}
+      <div ref={scrollRef} 
+      style={{ minWidth: `${movies.length * 220}px` }} // Fuerza el ancho min para que el contenedor sea mas ancho que el padre y aparezca el scroll horizontal
+      className="flex gap-4 overflow-x-auto scrollbar-hide px-1 mx-2 w-full"> {/*el ref permite acceder al div y hacer el scroll*/}
         {movies.map((movie) => (
           <div key={movie.id} className="min-w-[200px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
           onClick={() => handleMovieClick(movie.id)}>
@@ -61,7 +63,7 @@ const MoviesGrid = ({ movies }) => {
     {/* Flecha derecha */}
     <button
       onClick={scrollRight}
-      className="hover:text-blue-500 active:text-blue-600 absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
+      className="cursor-pointer hover:text-blue-500 active:text-blue-600 absolute right-0 top-1/2 transform -translate-y-1/20 text-white p-2 rounded-full z-10"
       aria-label="Scroll Right"
     >
       &#8594;
