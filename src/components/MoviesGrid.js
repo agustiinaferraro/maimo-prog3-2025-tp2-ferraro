@@ -8,7 +8,8 @@ const MoviesGrid = ({ movies }) => {
 
   const scrollLeft = () => {
     if (scrollRef.current) { 
-      // scrollRef es una referencia para acceder al div, con current agarro al div
+      // scrollRef es una referencia para acceder al div, con el current agarro al div, sin eso agarro una caja vacía
+      // current es la propiedad de ref que permite acceder al objeto real (div en este caso)
       scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' }); 
       // scrollBy mueve horizontalmente 300 px, el smooth hace una animación
     }
@@ -20,7 +21,7 @@ const MoviesGrid = ({ movies }) => {
     }
   };
 
-  const scrollRef = useRef(null); // referencia, inicialmente sin apuntar a nada (null)
+  const scrollRef = useRef(null); // referencia, inicialmente sin apuntar a nada o sea null)
 
   const router = useRouter();
   const handleMovieClick = (id) => {
@@ -28,29 +29,28 @@ const MoviesGrid = ({ movies }) => {
   };
 
   return (
+
     <div className="relative w-full"> {/* contenedor padre para poder posicionar las flechas */}
-      
-      {/* Flecha izquierda */}
+
+      {/* Flecha izquierda afuera del scroll */}
       <button
         onClick={scrollLeft}
-        className="cursor-pointer hover:text-blue-500 active:text-blue-600 absolute left-0 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full z-10"
+        className="cursor-pointer hover:text-blue-500 active:text-blue-600 absolute left-0 top-1/2 -translate-y-1/2 text-white p-2 rounded-full z-20 bg-black bg-opacity-50"
         aria-label="Scroll Left"
       >
         &#8592;
       </button>
           
-      {/* Contenedor del scroll */}
-      <div 
+      {/* Contenedor scroll con gap y scrollbar oculto */}
+      <div
         ref={scrollRef} 
-        className="overflow-x-auto scrollbar-hide px-1 mx-2 w-full" 
-        style={{ whiteSpace: 'nowrap' }} 
-        // whiteSpace nowrap para que los items no se bajen y mantengan fila única
-      > 
+        className="flex gap-4 overflow-x-auto scrollbar-hide px-4 mx-12 w-full"
+        style={{ scrollBehavior: 'smooth' }}
+      >
         {movies.map((movie) => (
-          <div 
-            key={movie.id} 
-            className="inline-block min-w-[200px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer align-top"
-            // inline-block mantiene el tamaño fijo sin achicar con flexbox
+          <div
+            key={movie.id}
+            className="min-w-[200px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             onClick={() => handleMovieClick(movie.id)}
           >
             <Image
@@ -69,14 +69,15 @@ const MoviesGrid = ({ movies }) => {
         ))}
       </div>
 
-      {/* Flecha derecha */}
+      {/* Flecha derecha afuera del scroll */}
       <button
         onClick={scrollRight}
-        className="cursor-pointer hover:text-blue-500 active:text-blue-600 absolute right-0 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full z-10"
+        className="cursor-pointer hover:text-blue-500 active:text-blue-600 absolute right-0 top-1/2 -translate-y-1/2 text-white p-2 rounded-full z-20 bg-black bg-opacity-50"
         aria-label="Scroll Right"
       >
         &#8594;
       </button>
+
     </div>
   );
 };
