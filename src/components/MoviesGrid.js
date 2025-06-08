@@ -10,7 +10,7 @@ const MoviesGrid = ({ movies }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6 gap-6 w-full mx-auto">
+    <div className="flex gap-4 overflow-x-auto scrollbar-hide px-1">
       {movies.map((movie) => (
         <div key={movie.id} className="transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
         onClick={() => handleMovieClick(movie.id)}>
