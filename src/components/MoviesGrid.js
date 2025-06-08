@@ -33,7 +33,7 @@ const MoviesGrid = ({ movies }) => {
     {/* Flecha izquierda */}
     <button
       onClick={scrollLeft}
-      className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
+      className="hover:text-blue-500 active:text-blue-600 absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
       aria-label="Scroll Left"
     >
       &#8592;
@@ -61,7 +61,7 @@ const MoviesGrid = ({ movies }) => {
     {/* Flecha derecha */}
     <button
       onClick={scrollRight}
-      className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
+      className="hover:text-blue-500 active:text-blue-600 absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
       aria-label="Scroll Right"
     >
       &#8594;
