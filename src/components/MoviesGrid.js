@@ -89,7 +89,7 @@ const MoviesGrid = ({ movies }) => {
         disabled={!canScrollRight}
         className={`absolute right-0 top-0 bottom-0 z-10 w-12 flex items-center justify-center 
           text-white transition-opacity duration-300 
-          ${canScrollRight ? "hover:bg-black/30" : "opacity-20 cursor-default"}`}
+          ${canScrollRight ? "hover:bg-black/50" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Right"
       >
         &#8594;
