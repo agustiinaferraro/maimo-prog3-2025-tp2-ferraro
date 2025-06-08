@@ -1,16 +1,33 @@
 import Loading from "./Loading";
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from "next/navigation"; 
-import { useRef } from "react"; // useRef para poder crear la referencia
+import { useRef, useEffect, useState } from "react"; // useRef para la referencia del contenedor y useState para controlar el scroll
 
 const MoviesGrid = ({ movies }) => {
 
-  const scrollRef = useRef(null); // referencia, inicialmente sin apuntar a nada (o sea null)
+  const scrollRef = useRef(null); // referencia al contenedor scrollable
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true); // arranca en true porque hay contenido
+
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1); // -1 por precisión
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    const scrollEl = scrollRef.current;
+    if (!scrollEl) return;
+    scrollEl.addEventListener('scroll', checkScroll);
+    return () => scrollEl.removeEventListener('scroll', checkScroll);
+  }, []);
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' }); // scrollBy mueve horizontalmente 300 px, el smooth hace una animación
+      scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
     }
   };
 
@@ -26,36 +43,35 @@ const MoviesGrid = ({ movies }) => {
   };
 
   return (
-    // contenedor padre, relativo para posicionar las flechas; hover:group para que las flechas aparezcan al hacer hover
-    <div className="relative w-full group">
+    <div className="relative w-full"> {/* contenedor padre para posicionar flechas */}
 
-      {/* Flecha izquierda, oculta por defecto y visible solo al hacer hover en el contenedor */}
+      {/* Flecha izquierda con sombra negra y deshabilitada si no se puede scrollear */}
       <button
         onClick={scrollLeft}
-        className="hidden group-hover:flex items-center justify-center absolute left-0 top-1/2 transform -translate-y-1/2 text-white shadow-md hover:shadow-lg p-2 z-10 transition-opacity duration-300"
+        disabled={!canScrollLeft}
+        className={`absolute left-0 top-0 bottom-0 z-10 w-12 flex items-center justify-center 
+          text-white transition-opacity duration-300 
+          ${canScrollLeft ? "hover:bg-black/30" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Left"
       >
         &#8592;
       </button>
 
-      {/* Contenedor scrollable horizontalmente */}
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto px-4 py-2 scrollbar-hide"
+        className="flex gap-4 overflow-x-auto overflow-y-hidden px-4 py-2 no-scrollbar w-full" // el ref permite acceder al div y hacer el scroll
       >
         {movies.map((movie) => (
-          // cada película tiene ancho fijo para que no cambie con la cantidad
-          <div
-            key={movie.id}
-            className="w-[200px] flex-shrink-0 transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+          <div key={movie.id}
+            className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             onClick={() => handleMovieClick(movie.id)}
           >
             <Image
-              className="img h-[450px] object-cover"
+              className="h-[500px] object-cover"
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.original_title}
-              width={300}
-              height={450}
+              width={350}
+              height={500}
               priority
             />
             <div className="nombre">
@@ -67,15 +83,17 @@ const MoviesGrid = ({ movies }) => {
         ))}
       </div>
 
-      {/* Flecha derecha*/}
+      {/* Flecha derecha con sombra negra y deshabilitada si no se puede scrollear */}
       <button
         onClick={scrollRight}
-        className="hidden group-hover:flex items-center justify-center absolute right-0 top-1/2 transform -translate-y-1/2 text-white shadow-md hover:shadow-lg p-2 z-10 transition-opacity duration-300"
+        disabled={!canScrollRight}
+        className={`absolute right-0 top-0 bottom-0 z-10 w-12 flex items-center justify-center 
+          text-white transition-opacity duration-300 
+          ${canScrollRight ? "hover:bg-black/30" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Right"
       >
         &#8594;
       </button>
-
     </div>
   );
 };

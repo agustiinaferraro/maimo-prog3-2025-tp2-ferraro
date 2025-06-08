@@ -22,7 +22,7 @@ ul{
   list-style: none;
 }
 
-/* Esto oculta completamente las barras de scroll */
+/* Esto oculta las barras de scroll */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
