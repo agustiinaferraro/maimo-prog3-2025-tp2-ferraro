@@ -11,9 +11,6 @@ const HomeContainer = () => {
   const [movies, setMovie] = useState(null); //aca se guardan las respuestas de las peliculas
   const [error, setError] = useState(false); //controla si hubo algun error en la ca;rga
   const [loading, setLoading] = useState(true);
-  const principales = movies.results.slice(0,7);
-  const destacadas = movies.results.slice(8,14);
-  const recomendadas = movies.results.slice(15,23);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -37,6 +34,9 @@ const HomeContainer = () => {
   if (loading) return <Loading />; //si carga muestra el icono del componente loading
   if (error) return <div className="mx-auto h-screen text-3xl text-white text-center">Hubo un error</div>;
   if (!movies) return <div className="mx-auto h-screen text-3xl text-white text-center">No se encontró la película</div>; 
+  const principales = movies.results.slice(0,7);
+  const destacadas = movies.results.slice(8,14);
+  const recomendadas = movies.results.slice(15,23);
 
   return (
     <main className="flex flex-col items-center"> {/*
