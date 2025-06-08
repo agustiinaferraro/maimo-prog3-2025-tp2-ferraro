@@ -21,3 +21,12 @@ html {
 ul{
   list-style: none;
 }
+
+/* Esto oculta completamente las barras de scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE y Edge */
+  scrollbar-width: none; /* Firefox */
+}
