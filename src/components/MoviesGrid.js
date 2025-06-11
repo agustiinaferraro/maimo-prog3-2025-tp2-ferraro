@@ -59,8 +59,11 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
 
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto overflow-y-hidden px-4 py-2 no-scrollbar w-full" // el ref permite acceder al div y hacer el scroll
-      >
+        className="flex gap-4 overflow-x-auto overflow-y-hidden px-4 py-2 no-scrollbar w-full"
+        style={{
+          touchAction: 'pan-x',
+          overscrollBehaviorX: 'contain'
+        }}>
         {movies.map((movie) => (
           <div key={movie.id}
             className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
