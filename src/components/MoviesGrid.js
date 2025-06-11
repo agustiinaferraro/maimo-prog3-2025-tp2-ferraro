@@ -67,7 +67,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
             onClick={() => handleMovieClick(movie.id)}
           >
             <Image
-              className="h-[500px] object-cover"
+              className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[500px] w-[350px]"} object-cover rounded-md`}
               src={`https://image.tmdb.org/t/p/w500${useBackdrop ? movie.backdrop_path : movie.poster_path}`}
               alt={movie.original_title}
               width={useBackdrop ? 400 : 350}

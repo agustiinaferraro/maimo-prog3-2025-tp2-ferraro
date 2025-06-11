@@ -8,7 +8,7 @@ const Hero = ({movies}) => {
 
     const [featuredMovie, setFeaturedMovie] = useState(movies[0]);
     const router = useRouter();
-    const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`
+    const IMAGE_BASE = movies[Math.floor(Math.random() * movies.length)];`https://image.tmdb.org/t/p/original/`
     
     const handleMovieClick= () => {
       router.push(`/movie/${featuredMovie.id}`); //router es el objeto que maneja la navegacion y push cambia la ruta actual a la que se le pasa
