@@ -49,8 +49,8 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
       <button
         onClick={scrollLeft}
         disabled={!canScrollLeft}
-        className={`absolute left-0 top-0 bottom-0 z-10 w-12 flex items-center justify-center 
-          text-white transition-opacity duration-300 
+         className={`hidden sm:flex absolute left-0 top-0 bottom-0 z-10 w-12 items-center justify-center 
+         text-white hover:bg-black/30 transition-opacity duration-300 
           ${canScrollLeft ? "hover:bg-black/30" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Left"
       >
@@ -87,9 +87,9 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
       <button
         onClick={scrollRight}
         disabled={!canScrollRight}
-        className={`absolute right-0 top-0 bottom-0 z-10 w-12 flex items-center justify-center 
-          text-white transition-opacity duration-300 
-          ${canScrollRight ? "hover:bg-black/50" : "opacity-20 cursor-default"}`}
+       className={`hidden sm:flex absolute right-0 top-0 bottom-0 z-10 w-12 items-center justify-center 
+       text-white hover:bg-black/50 transition-opacity duration-300 
+       ${canScrollRight ? "hover:bg-black/50" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Right"
       >
         &#8594;
