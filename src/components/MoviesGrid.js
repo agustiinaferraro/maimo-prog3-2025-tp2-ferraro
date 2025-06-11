@@ -63,7 +63,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
       >
         {movies.map((movie) => (
           <div key={movie.id}
-            className="w-12 min-w-[44px] h-full flex items-center justify-center transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+            className="h-full flex flex-col items-center justify-start transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             onClick={() => handleMovieClick(movie.id)}
           >
             <Image
