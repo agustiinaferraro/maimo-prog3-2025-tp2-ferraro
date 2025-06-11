@@ -52,7 +52,7 @@ const HomeContainer = () => {
           <MoviesGrid movies={principales} />
 
           <h2 className="text-left text-3xl text-white font-bold  py-6">Destacadas</h2>
-          <MoviesGrid movies={destacadas} />
+          <MoviesGrid movies={destacadas} useBackdrop={false} />
 
           <h2 className="text-left text-3xl text-white font-bold  py-6">Recomendadas</h2>
           <MoviesGrid movies={recomendadas} />

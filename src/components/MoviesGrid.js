@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useRouter } from "next/navigation"; 
 import { useRef, useEffect, useState } from "react"; // useRef para la referencia del contenedor y useState para controlar el scroll
 
-const MoviesGrid = ({ movies }) => {
+const MoviesGrid = ({ movies, useBackdrop = true }) => {
 
   const scrollRef = useRef(null); // referencia al contenedor scrollable
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -68,10 +68,10 @@ const MoviesGrid = ({ movies }) => {
           >
             <Image
               className="h-[500px] object-cover"
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w500${useBackdrop ? movie.backdrop_path : movie.poster_path}`}
               alt={movie.original_title}
-              width={350}
-              height={500}
+              width={useBackdrop ? 400 : 350}
+              height={useBackdrop ? 225 : 500}
               priority
             />
             <div className="nombre">
