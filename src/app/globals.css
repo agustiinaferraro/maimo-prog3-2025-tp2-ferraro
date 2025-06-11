@@ -4,14 +4,10 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* background-image: url("/assets/fondo.jpg");
-  background-size: cover;
-  background-repeat: no-repeat; */
   background-color: black;
   background-position: center;
-  background-attachment: fixed; /* Fija el fondo */
+  background-attachment: fixed;
   height: 100%;
-  overflow-x: hidden; /* solo el body */
 }
 
 html {
@@ -22,12 +18,14 @@ ul {
   list-style: none;
 }
 
-/* oculta las barras de scroll */
+/* Ocultar scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE y edge */
-  scrollbar-width: none; /* firefox */
-  touch-action: pan-x; /* permite deslizar horizontal con el dedo en mobile */
+  -ms-overflow-style: none; /* IE y Edge */
+  scrollbar-width: none;    /* firefox */
+  touch-action: pan-x;      /* deslizar horizontal con el dedo */
+  overflow-x: auto;         /* scroll horizontal local */
+  overscroll-behavior-x: contain; /* evita que se propague el scroll al body */
 }
