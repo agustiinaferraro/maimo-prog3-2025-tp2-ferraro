@@ -6,9 +6,9 @@ import Loading from "./Loading";
 
 const Hero = ({movies}) => {
 
-    const [featuredMovie, setFeaturedMovie] = useState(movies[0]);
+    const [featuredMovie, setFeaturedMovie] = useState(null);
     const router = useRouter();
-    const IMAGE_BASE = movies[Math.floor(Math.random() * movies.length)];`https://image.tmdb.org/t/p/original/`
+    const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`
     
     const handleMovieClick= () => {
       router.push(`/movie/${featuredMovie.id}`); //router es el objeto que maneja la navegacion y push cambia la ruta actual a la que se le pasa
@@ -16,7 +16,8 @@ const Hero = ({movies}) => {
 
     useEffect(() => {
     if (movies && movies.length > 0) {
-      setFeaturedMovie(movies[0]);
+      const randomIndex = Math.floor(Math.random() * movies.length);
+      setFeaturedMovie(movies[randomIndex]);
     }
 
     }, [movies]);
@@ -27,7 +28,7 @@ const Hero = ({movies}) => {
 
     <section 
     style=
-    {{backgroundImage: `url(${IMAGE_BASE}/${featuredMovie.backdrop_path})`,
+    {{backgroundImage: `url(${IMAGE_BASE}${featuredMovie.backdrop_path})`,
     }} 
     className={`w-full h-[600px] bg-cover bg-no-repeat bg-center cursor-pointer`}
     onClick={handleMovieClick}
