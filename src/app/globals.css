@@ -1,32 +1,33 @@
 @import "tailwindcss";
 
-body {
+/* Reseteos generales */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   background-color: black;
-  background-position: center;
-  background-attachment: fixed;
   height: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Evita el scroll horizontal global */
 }
 
-html {
-  height: 100%;
+/* Evita que cualquier contenedor se desborde en ancho */
+main, section, div {
+  max-width: 100vw;
 }
 
+/* Listas sin viñetas */
 ul {
   list-style: none;
 }
 
-/* Ocultar scrollbar */
+/* Oculta barras de scroll para los carruseles */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
   -ms-overflow-style: none; /* IE y Edge */
-  scrollbar-width: none;    /* firefox */
-  touch-action: pan-x;      /* deslizar horizontal con el dedo */
-  overflow-x: auto;         /* scroll horizontal local */
-  overscroll-behavior-x: contain; /* evita que se propague el scroll al body */
+  scrollbar-width: none; /* Firefox */
 }
