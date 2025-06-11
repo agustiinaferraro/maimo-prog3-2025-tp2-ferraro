@@ -34,7 +34,7 @@ const Hero = ({movies}) => {
     onClick={handleMovieClick}
     >
 
-    <div className="text-white content h-full flex flex-col justify-center items-start px-[50px] bg-black/60">
+    <div className="text-white content h-full flex flex-col py-50px items-start px-[50px] bg-black/60">
         <div className="content" onClick={handleMovieClick}>
             <h2 className="text-5xl"> {featuredMovie.title} </h2>
             <p className="max-w-[500px]"> {featuredMovie.overview} </p>
