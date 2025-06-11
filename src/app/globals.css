@@ -17,11 +17,9 @@ html {
   height: 100%;
 }
 
-html, body {
+/* html, body {
   overflow-x: hidden;
-}
-
-
+} */
 
 ul{
   list-style: none;
