@@ -4,32 +4,30 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
- /* background-image: url("/assets/fondo.jpg");
+  /* background-image: url("/assets/fondo.jpg");
   background-size: cover;
-  background-repeat: no-repeat;*/
+  background-repeat: no-repeat; */
   background-color: black;
   background-position: center;
   background-attachment: fixed; /* Fija el fondo */
   height: 100%;
+  overflow-x: hidden; /* solo el body */
 }
 
 html {
   height: 100%;
 }
 
-/* html, body {
-  overflow-x: hidden;
-} */
-
-ul{
+ul {
   list-style: none;
 }
 
-/* Esto oculta las barras de scroll */
+/* oculta las barras de scroll */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE y Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE y edge */
+  scrollbar-width: none; /* firefox */
+  touch-action: pan-x; /* permite deslizar horizontal con el dedo en mobile */
 }
