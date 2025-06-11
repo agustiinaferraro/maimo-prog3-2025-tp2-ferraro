@@ -49,7 +49,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
       <button
         onClick={scrollLeft}
         disabled={!canScrollLeft}
-        className={`absolute left-0 top-0 bottom-0 z-50 w-12 flex items-center justify-center 
+        className={`absolute left-0 top-0 bottom-0 z-10 w-12 flex items-center justify-center 
           text-white transition-opacity duration-300 
           ${canScrollLeft ? "hover:bg-black/30" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Left"
@@ -59,11 +59,11 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
 
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto overflow-y-hidden px-4 py-2 no-scrollbar w-full scroll-smooth touch-auto" // el ref permite acceder al div y hacer el scroll
+        className="flex gap-4 overflow-x-auto overflow-y-hidden px-4 py-2 no-scrollbar w-full" // el ref permite acceder al div y hacer el scroll
       >
         {movies.map((movie) => (
           <div key={movie.id}
-            className="h-full flex flex-col items-center justify-start transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+            className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             onClick={() => handleMovieClick(movie.id)}
           >
             <Image
@@ -87,7 +87,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
       <button
         onClick={scrollRight}
         disabled={!canScrollRight}
-        className={`absolute right-0 top-0 bottom-0 z-50 w-12 flex items-center justify-center 
+        className={`absolute right-0 top-0 bottom-0 z-10 w-12 flex items-center justify-center 
           text-white transition-opacity duration-300 
           ${canScrollRight ? "hover:bg-black/50" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Right"
