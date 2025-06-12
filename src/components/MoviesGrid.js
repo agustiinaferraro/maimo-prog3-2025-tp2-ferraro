@@ -79,7 +79,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
             />
             <div className="nombre">
               <ul>
-                <li className="text-1xl text-white font-bold py-50px">{movie.original_title}</li>
+                <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
               </ul>
             </div>
           </div>
