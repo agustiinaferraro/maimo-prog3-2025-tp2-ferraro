@@ -74,7 +74,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
               src={`https://image.tmdb.org/t/p/w500${useBackdrop ? movie.backdrop_path : movie.poster_path}`}
               alt={movie.original_title}
               width={useBackdrop ? 400 : 350}
-              height={useBackdrop ? 225 : 500}
+              height={useBackdrop ? 225 : 400}
               priority
             />
             <div className="nombre">
