@@ -5,10 +5,11 @@ const Navbar = () => {
   return (
     
     <div className='flex justify-between items-center text-white px-4 py-2 bg-gradient-to-r from-black to-transparent'>
-        <div>
-        <Image src="/assets/logo.jpg" alt="banner" width={50} height={50} className="h-[50px] object-cover rounded-full"/>
-          
-        </div>
+        <Link href="/">
+          <div>
+          <Image src="/assets/logo.jpg" alt="banner" width={50} height={50} className="h-[50px] object-cover rounded-full"/>
+          </div>
+        </Link>
 
         <nav> 
             <ul className="flex gap-6 text-white-600">
