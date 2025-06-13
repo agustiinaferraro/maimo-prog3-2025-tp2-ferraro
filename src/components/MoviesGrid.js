@@ -7,7 +7,7 @@ import { useRef, useEffect, useState } from "react"; // useRef para la referenci
 import { useAppContext } from "@/app/context/AppContext";
 
 const MoviesGrid = ({ movies, useBackdrop = true }) => {
- const {handleAddtoFavorites} = useAppContext()
+ const {handleAddToFavorites} = useAppContext()
   const scrollRef = useRef(null); // referencia al contenedor scrollable
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true); // arranca en true porque hay contenido
@@ -88,7 +88,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
               </ul>
               
             <button 
-            onClick={() => handleAddtoFavorites(movie.title, movie.poster_path, movie.backdrop_path, movie.id)}
+            onClick={() => handleAddToFavorites(movie.title, movie.poster_path, movie.backdrop_path, movie.id)}
             className="bg-white text-black text-sm px-2 py-1 rounded cursor-pointer"
             >
               Add to favorites
