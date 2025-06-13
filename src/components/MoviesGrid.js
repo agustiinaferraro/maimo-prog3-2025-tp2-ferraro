@@ -75,14 +75,14 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
             onClick={() => handleMovieClick(movie.id)}
           >
             <Image
-              className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[00px] w-[350px]"} object-cover rounded-md`}
+              className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[400px] w-[350px]"} object-cover rounded-md`}
               src={`https://image.tmdb.org/t/p/w500${useBackdrop ? movie.backdrop_path : movie.poster_path}`}
               alt={movie.original_title}
               width={useBackdrop ? 400 : 350}
               height={useBackdrop ? 225 : 400}
               priority
             />
-            <div className="nombre">
+            <div className="bg-black/60 p-2">
               <ul>
                 <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
               </ul>
