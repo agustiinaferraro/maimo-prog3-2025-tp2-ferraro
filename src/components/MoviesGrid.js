@@ -87,7 +87,10 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                 <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
               </ul>
               
-            <button onClick={() => handleAddtoFavorites(movie.title, movie.poster_path, movie.backdrop_path, movie.id)}>
+            <button 
+            onClick={() => handleAddtoFavorites(movie.title, movie.poster_path, movie.backdrop_path, movie.id)}
+            className="bg-white text-black text-sm px-2 py-1 rounded"
+            >
               Add to favorites
             </button>
 
