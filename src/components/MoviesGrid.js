@@ -89,7 +89,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
               
               <button>
                 {/*verificar el image aca*/}
-                onClick = {() => handleAddtoFavorites (movie.title, movie.poster_path, movie.id)}
+                onClick = {() => handleAddtoFavorites (movie.title, movie.useBackdrop, movie.id)}
                 Add to favorites
               </button>
             </div>
