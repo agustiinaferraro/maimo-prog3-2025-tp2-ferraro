@@ -87,11 +87,10 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                 <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
               </ul>
               
-              <button>
-                {/*verificar el image aca*/}
-                onClick = {() => handleAddtoFavorites (movie.title, movie.useBackdrop, movie.id)}
-                Add to favorites
-              </button>
+            <button onClick={() => handleAddtoFavorites(movie.title, movie.poster_path, movie.backdrop_path, movie.id)}>
+              Add to favorites
+            </button>
+
             </div>
           </div>
         ))}
