@@ -1,10 +1,13 @@
+'use client'
+
 import Loading from "./Loading";
 import Image from 'next/image';
 import { useRouter } from "next/navigation"; 
 import { useRef, useEffect, useState } from "react"; // useRef para la referencia del contenedor y useState para controlar el scroll
+import { useAppContext } from "@/app/context/AppContext";
 
 const MoviesGrid = ({ movies, useBackdrop = true }) => {
-
+ const {handleAddtoFavorites} = useAppContext()
   const scrollRef = useRef(null); // referencia al contenedor scrollable
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true); // arranca en true porque hay contenido
@@ -42,6 +45,8 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
     router.push(`/movie/${id}`);
   };
 
+  
+
   return (
     <div className="relative w-full"> {/* contenedor padre para posicionar flechas */}
 
@@ -70,7 +75,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
             onClick={() => handleMovieClick(movie.id)}
           >
             <Image
-              className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[400px] w-[350px]"} object-cover rounded-md`}
+              className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[00px] w-[350px]"} object-cover rounded-md`}
               src={`https://image.tmdb.org/t/p/w500${useBackdrop ? movie.backdrop_path : movie.poster_path}`}
               alt={movie.original_title}
               width={useBackdrop ? 400 : 350}
@@ -81,6 +86,12 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
               <ul>
                 <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
               </ul>
+              
+              <button>
+                {/*verificar el image aca*/}
+                onClick = {() => handleAddtoFavorites (movie.title, movie.poster_path, movie.id)}
+                Add to favorites
+              </button>
             </div>
           </div>
         ))}

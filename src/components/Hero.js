@@ -3,13 +3,15 @@
 import { useState, useEffect} from "react";
 import { useRouter } from "next/navigation"; 
 import Loading from "./Loading";
+import { useAppContext } from "@/app/context/AppContext";
 
 const Hero = ({movies}) => {
 
     const [featuredMovie, setFeaturedMovie] = useState(null);
     const router = useRouter();
     const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`
-    
+    const{favorites} = useAppContext()
+
     const handleMovieClick= () => {
       router.push(`/movie/${featuredMovie.id}`); //router es el objeto que maneja la navegacion y push cambia la ruta actual a la que se le pasa
     }
@@ -40,9 +42,7 @@ const Hero = ({movies}) => {
             <p className="max-w-[500px]"> {featuredMovie.overview} </p>
         </div>
     </div>
-
     </section>
-    
   )
 }
 
