@@ -7,7 +7,7 @@ const FavoritesContainer = () => {
   const { favorites } = useAppContext()
 
   return (
-    <div>
+    <div className='flex'>
       {favorites.map((movie) => (
         <div key={(movie.id)}>
           <Image
@@ -17,7 +17,7 @@ const FavoritesContainer = () => {
             height={200}
             style={{ borderRadius: '8px' }}
           />
-          <h2>{movie.title}</h2>
+          <h2 className='text-white'>{movie.title}</h2>
         </div>
       ))}
     </div>
