@@ -39,7 +39,7 @@ const FavoritesContainer = () => {
                     <button
                       onClick={(e) => {
                         e.preventDefault();
-                        handleAddToFavorites(movie.title, movie.image, movie.id);
+                        handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
                       }}
                       className="text-3xl text-white text-right px-2 py-1"
                     >
