@@ -83,7 +83,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                           e.preventDefault();
                           deleteToFavorites(movie.id);
                         }}
-                        className="text-2xl text-white text-right px-2 py-1"
+                        className="text-2xl text-white text-right px-2 py-1 cursor-pointer"
                       >
                         ⭐
                       </button>
@@ -94,7 +94,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                           // Siempre pasar backdrop_path para que se guarde la imagen correcta en favoritos
                           handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
                         }}
-                        className="text-3xl text-white text-right px-2 py-1"
+                        className="text-3xl text-white text-right px-2 py-1 cursor-pointer"
                       >
                         ☆
                       </button>

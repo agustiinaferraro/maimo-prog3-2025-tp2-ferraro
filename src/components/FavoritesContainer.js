@@ -46,7 +46,7 @@ const FavoritesContainer = () => {
                       e.preventDefault(); // no navega cuando le hago click en el boton
                       deleteToFavorites(movie.id); // Eliminar de favoritos
                     }}
-                    className="text-2xl text-white text-right px-2 py-1"
+                    className="text-2xl text-white text-right px-2 py-1 cursor-pointer"
                   >
                     ⭐
                   </button>
