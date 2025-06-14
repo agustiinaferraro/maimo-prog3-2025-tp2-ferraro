@@ -3,20 +3,20 @@
 import Loading from "./Loading";
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef, useEffect, useState } from "react"; // useRef para la referencia del contenedor y useState para controlar el scroll
+import { useRef, useEffect, useState } from "react";
 import { useAppContext } from "@/app/context/AppContext";
 
 const MoviesGrid = ({ movies, useBackdrop = true }) => {
   const { favorites, handleAddToFavorites, deleteToFavorites } = useAppContext();
-  const scrollRef = useRef(null); // referencia al contenedor scrollable
+  const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true); // arranca en true porque hay contenido
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const checkScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
       setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1); // -1 por precisión
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1);
     }
   };
 
@@ -29,27 +29,20 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
   }, []);
 
   const scrollLeft = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
-    }
+    scrollRef.current?.scrollBy({ left: -300, behavior: 'smooth' });
   };
 
   const scrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
-    }
+    scrollRef.current?.scrollBy({ left: 300, behavior: 'smooth' });
   };
 
   return (
-    <div className="relative w-full"> {/* contenedor padre para posicionar flechas */}
-
-      {/* Flecha izquierda con sombra negra y deshabilitada si no se puede scrollear */}
+    <div className="relative w-full">
       <button
         onClick={scrollLeft}
         disabled={!canScrollLeft}
         className={`hidden sm:flex absolute left-0 top-0 bottom-0 z-10 w-12 items-center justify-center 
-        text-white hover:bg-black/30 transition-opacity duration-300 
-        ${canScrollLeft ? "hover:bg-black/30" : "opacity-20 cursor-default"}`}
+        text-white ${canScrollLeft ? "hover:bg-black/30" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Left"
       >
         &#8592;
@@ -65,15 +58,14 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
       >
         {movies.map((movie) => {
           const isFavorite = favorites.some(fav => fav.id === movie.id);
+          const imagePath = useBackdrop ? movie.backdrop_path : movie.poster_path;
 
           return (
             <Link href={`/movie/${movie.id}`} key={movie.id}>
-              <div 
-                className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
-              >
+              <div className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer">
                 <Image
                   className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[400px] w-[350px]"} object-cover rounded-md`}
-                  src={`https://image.tmdb.org/t/p/w500${useBackdrop ? movie.backdrop_path : movie.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w500${imagePath}`}
                   alt={movie.original_title}
                   width={useBackdrop ? 400 : 350}
                   height={useBackdrop ? 225 : 400}
@@ -99,7 +91,8 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          handleAddToFavorites(movie.title, movie.image, movie.id);
+                          
+                          handleAddToFavorites(movie.title, imagePath, movie.id);
                         }}
                         className="text-3xl text-white text-right px-2 py-1"
                       >
@@ -114,13 +107,11 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
         })}
       </div>
 
-      {/* Flecha derecha con sombra negra y deshabilitada si no se puede scrollear */}
       <button
         onClick={scrollRight}
         disabled={!canScrollRight}
         className={`hidden sm:flex absolute right-0 top-0 bottom-0 z-10 w-12 items-center justify-center 
-        text-white hover:bg-black/50 transition-opacity duration-300 
-        ${canScrollRight ? "hover:bg-black/50" : "opacity-20 cursor-default"}`}
+        text-white ${canScrollRight ? "hover:bg-black/50" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Right"
       >
         &#8594;
