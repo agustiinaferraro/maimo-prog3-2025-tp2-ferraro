@@ -73,7 +73,10 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                 />
                 <div className="bg-black/60 p-2">
                   <ul>
-                    <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
+                    <li className="text-1xl text-white font-bold py-2">
+                      {movie.title || movie.name || movie.original_title || movie.original_name}
+                    </li>
+
                   </ul>
 
                   <div className="flex justify-end">
