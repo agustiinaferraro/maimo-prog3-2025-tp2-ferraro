@@ -9,7 +9,7 @@ const FavoritesContainer = () => {
   return (
   <div>
     <h2 className='text-amber-50 w-3xl'>Favoritos</h2>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 p-20'>
         {favorites.map((movie) => (
           <div key={(movie.id)}>
             <Image
@@ -17,7 +17,7 @@ const FavoritesContainer = () => {
               alt={movie.title}
               width={400}
               height={200}
-              style={{ borderRadius: '8px' }}
+              style={{ borderRadius: '4px' }}
             />
             <h2 className='text-white'>{movie.title}</h2>
           </div>
