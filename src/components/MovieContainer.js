@@ -15,6 +15,11 @@ const MovieContainer = ({ movie }) => {
   // Verifica si la pelicula esta en fav
   const isFavorite = favorites.some(fav => fav.id === movie.id); 
 
+  const title = movie.original_title || movie.name || movie.original_name || "Sin título";
+  
+  const date = movie.release_date || movie.first_air_date || "Fecha no disponible";
+
+
   return (
     <section 
       style={{
@@ -35,14 +40,14 @@ const MovieContainer = ({ movie }) => {
             <Image
               className="img"
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.original_title}
+              alt={title}
               width={300} 
               priority
             />
             <ul className=" text-white py-6 px-6">
-              <li className="text-7xl font-bold py-6"> {movie.original_title}</li>
+              <li className="text-7xl font-bold py-6"> {title}</li>
               <li>
-                <span className="text-1xl font-bold py-6">Fecha de estreno:</span> {movie.release_date}
+                <span className="text-1x1 font-bold py-6">Fecha de estreno:</span> {date}
               </li>
               <li>
                 <span className="text-1xl font-bold py-6">Idioma original:</span> {movie.original_language}
@@ -70,7 +75,7 @@ const MovieContainer = ({ movie }) => {
                   onClick={(e) => {
                     e.preventDefault();
                     // original_title y backdrop_path para guardar datos correctos en favoritos
-                    handleAddToFavorites(movie.original_title, movie.backdrop_path, movie.id);
+                    handleAddToFavorites(title, movie.backdrop_path, movie.id);
                   }}
                   className="text-3xl text-white text-right px-2 py-1 cursor-pointer"
                 >
