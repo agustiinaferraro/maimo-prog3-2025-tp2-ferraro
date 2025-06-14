@@ -90,8 +90,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
             <button 
               onClick={(e) => {
                 e.stopPropagation(); {/*esto es para que no afecte cuando se hace click*/}
-                const image = useBackdrop ? movie.backdrop_path : movie.poster_path;
-                handleAddToFavorites(movie.title, image, movie.id);
+                handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
               }}
               className="bg-white text-black text-sm px-2 py-1 rounded cursor-pointer"
             >
