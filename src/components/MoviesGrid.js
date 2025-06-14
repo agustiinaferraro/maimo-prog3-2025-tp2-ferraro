@@ -2,7 +2,7 @@
 
 import Loading from "./Loading";
 import Image from 'next/image';
-import { useRouter } from "next/navigation"; 
+import Link from 'next/link';
 import { useRef, useEffect, useState } from "react"; // useRef para la referencia del contenedor y useState para controlar el scroll
 import { useAppContext } from "@/app/context/AppContext";
 
@@ -40,11 +40,6 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
     }
   };
 
-  const router = useRouter();
-  const handleMovieClick = (id) => {
-    router.push(`/movie/${id}`);
-  };
-
   return (
     <div className="relative w-full"> {/* contenedor padre para posicionar flechas */}
 
@@ -72,46 +67,47 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
           const isFavorite = favorites.some(fav => fav.id === movie.id);
 
           return (
-            <div key={movie.id}
-              className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
-              onClick={() => handleMovieClick(movie.id)}
-            >
-              <Image
-                className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[400px] w-[350px]"} object-cover rounded-md`}
-                src={`https://image.tmdb.org/t/p/w500${useBackdrop ? movie.backdrop_path : movie.poster_path}`}
-                alt={movie.original_title}
-                width={useBackdrop ? 400 : 350}
-                height={useBackdrop ? 225 : 400}
-                priority
-              />
-              <div className="bg-black/60 p-2">
-                <ul>
-                  <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
-                </ul>
+            <Link href={`/movie/${movie.id}`} key={movie.id}>
+              <div 
+                className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <Image
+                  className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[400px] w-[350px]"} object-cover rounded-md`}
+                  src={`https://image.tmdb.org/t/p/w500${useBackdrop ? movie.backdrop_path : movie.poster_path}`}
+                  alt={movie.original_title}
+                  width={useBackdrop ? 400 : 350}
+                  height={useBackdrop ? 225 : 400}
+                  priority
+                />
+                <div className="bg-black/60 p-2">
+                  <ul>
+                    <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
+                  </ul>
 
-                {isFavorite ? (
-                  <button
-                    onClick={e => {
-                      e.stopPropagation();
-                      deleteToFavorites(movie.id);
-                    }}
-                    className="bg-red-500 text-white px-2 py-1 rounded"
-                  >
-                    Eliminar de favoritos
-                  </button>
-                ) : (
-                  <button
-                    onClick={e => {
-                      e.stopPropagation();
-                    handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
-                    }}
-                    className="bg-white text-black px-2 py-1 rounded"
-                  >
-                    Agregar a favoritos
-                  </button>
-                )}
+                  {isFavorite ? (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault(); // evita que el click propague y active el Link
+                        deleteToFavorites(movie.id);
+                      }}
+                      className="bg-red-500 text-white px-2 py-1 rounded"
+                    >
+                      Eliminar de favoritos
+                    </button>
+                  ) : (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault(); // evita que el click propague y active el Link
+                        handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
+                      }}
+                      className="bg-white text-black px-2 py-1 rounded"
+                    >
+                      Agregar a favoritos
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
