@@ -8,12 +8,14 @@ const FavoritesContainer = () => {
   // obitiene favoritos y funciones para agregar/eliminar del contexto
   const { favorites, deleteToFavorites } = useAppContext();
 
+
   return (
     <div className='p-20'>
       <h2 className='text-amber-50 text-4xl font-semibold mt-2'>Favoritos</h2>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 py-10'>
         {/* Mapear favoritos para mostrarlos */}
         {favorites.map((movie) => {
+          const favoriteTitle = movie.title || movie.name || movie.original_title || "Sin título";
           console.log("Favorito con imagen:", movie.image); // Debug para ver imágenes guardadas
 
           return (
@@ -26,7 +28,7 @@ const FavoritesContainer = () => {
                 {movie.image ? (
                   <Image
                     src={`https://image.tmdb.org/t/p/w500${movie.image}`}
-                    alt={movie.title}
+                    alt={favoriteTitle}
                     width={400}
                     height={200}
                     style={{ borderRadius: '4px' }}
@@ -37,7 +39,7 @@ const FavoritesContainer = () => {
                   </div>
                 )}
 
-                <h2 className='text-white'>{movie.title}</h2>
+                <h2 className='text-white'>{favoriteTitle}</h2>
 
                 {/* Boton para eliminar de favoritos */}
                 <div className="flex justify-end">
