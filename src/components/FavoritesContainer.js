@@ -8,10 +8,10 @@ const FavoritesContainer = () => {
 
   return (
   <div className='p-20'>
-    <h2 className='text-amber-50 text-5xl font-semibold mt-2'>Favoritos</h2>
+    <h2 className='text-amber-50 text-4xl font-semibold mt-2'>Favoritos</h2>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 py-10'>
         {favorites.map((movie) => (
-          <div key={(movie.id)}>
+          <div className='py-5' key={(movie.id)}>
             <Image
               src={`https://image.tmdb.org/t/p/w500${movie.image}`}
               alt={movie.title}
