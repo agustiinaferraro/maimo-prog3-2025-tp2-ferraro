@@ -3,9 +3,11 @@
 import { useAppContext } from '@/app/context/AppContext'
 import Image from 'next/image'
 
-const FavoritesContainer = () => {
-  const { favorites } = useAppContext()
 
+const FavoritesContainer = () => {
+  const { favorites, handleAddToFavorites, deleteToFavorites } = useAppContext();
+  
+  const isFavorite = favorites.some(fav => fav.id === movie.id); 
   return (
   <div className='p-20'>
     <h2 className='text-amber-50 text-4xl font-semibold mt-2'>Favoritos</h2>
@@ -20,8 +22,33 @@ const FavoritesContainer = () => {
               style={{ borderRadius: '4px' }}
             />
             <h2 className='text-white'>{movie.title}</h2>
+
+            {isFavorite ? (
+              <button
+                onClick={(e) => {
+                  e.preventDefault(); // evita que el click propague y active el Link
+                  deleteToFavorites(movie.id);
+                }}
+                className="text-2xl text-white text-right px-2 py-1"
+              >
+                ⭐
+              </button>
+            ) : (
+              <button
+                onClick={(e) => {
+                  e.preventDefault(); // evita que el click propague y active el Link
+                  handleAddToFavorites(movie.original_title, movie.backdrop_path, movie.id);
+                }}
+                className="text-3xl text-white text-right px-2 py-1"
+              >
+                ☆
+              </button>
+              )}
+
           </div>
         ))}
+        
+
       </div>
   </div>
   )
