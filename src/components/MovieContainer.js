@@ -1,3 +1,5 @@
+'use client'
+
 import Loading from "./Loading";
 import Link from 'next/link';
 import Image from "next/image";
