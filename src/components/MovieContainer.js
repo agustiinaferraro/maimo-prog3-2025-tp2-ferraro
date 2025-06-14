@@ -40,27 +40,29 @@ const MovieContainer = ({ movie }) => {
                   <li><span className="text-1xl font-bold py-6">Descripción:</span> {movie.overview}</li>
                 </ul>
 
-                {isFavorite ? (
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault(); // evita que el click propague y active el Link
-                          deleteToFavorites(movie.id);
-                        }}
-                        className="text-2xl text-white text-right px-2 py-1"
-                      >
-                        ⭐
-                      </button>
-                    ) : (
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault(); // evita que el click propague y active el Link
-                          handleAddToFavorites(movie.original_title, movie.backdrop_path, movie.id);
-                        }}
-                        className="text-3xl text-white text-right px-2 py-1"
-                      >
-                        ☆
-                      </button>
-                      )}
+            <div className="flex justify-end">
+              {isFavorite ? (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    deleteToFavorites(movie.id);
+                  }}
+                  className="text-2xl text-white text-right px-2 py-1"
+                >
+                  ⭐
+                </button>
+              ) : (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAddToFavorites(movie.title, movie.image, movie.id);
+                  }}
+                  className="text-3xl text-white text-right px-2 py-1"
+                >
+                  ☆
+                </button>
+              )}
+            </div>
             </div>
           </div>
         </div>

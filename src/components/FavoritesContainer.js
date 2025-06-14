@@ -23,28 +23,31 @@ const FavoritesContainer = () => {
                 style={{ borderRadius: '4px' }}
               />
               <h2 className='text-white'>{movie.title}</h2>
+            
+              <div className="flex justify-end">
+                  {isFavorite ? (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        deleteToFavorites(movie.id);
+                      }}
+                      className="text-2xl text-white text-right px-2 py-1"
+                    >
+                      ⭐
+                    </button>
+                  ) : (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleAddToFavorites(movie.title, movie.image, movie.id);
+                      }}
+                      className="text-3xl text-white text-right px-2 py-1"
+                    >
+                      ☆
+                    </button>
+                  )}
+                </div>
 
-              {isFavorite ? (
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    deleteToFavorites(movie.id);
-                  }}
-                  className="text-2xl text-white text-right px-2 py-1"
-                >
-                  ⭐
-                </button>
-              ) : (
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleAddToFavorites(movie.title, movie.image, movie.id);
-                  }}
-                  className="text-3xl text-white text-right px-2 py-1"
-                >
-                  ☆
-                </button>
-              )}
             </div>
           );
         })}

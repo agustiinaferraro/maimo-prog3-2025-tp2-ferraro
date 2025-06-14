@@ -84,27 +84,29 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                     <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
                   </ul>
 
-                  {isFavorite ? (
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault(); // evita que el click propague y active el Link
-                        deleteToFavorites(movie.id);
-                      }}
-                      className="text-2xl text-white text-right px-2 py-1"
-                    >
-                      ⭐
-                    </button>
-                  ) : (
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault(); // evita que el click propague y active el Link
-                        handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
-                      }}
-                      className="text-3xl text-white text-right px-2 py-1"
-                    >
-                      ☆
-                    </button>
-                  )}
+                  <div className="flex justify-end">
+                    {isFavorite ? (
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          deleteToFavorites(movie.id);
+                        }}
+                        className="text-2xl text-white text-right px-2 py-1"
+                      >
+                        ⭐
+                      </button>
+                    ) : (
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleAddToFavorites(movie.title, movie.image, movie.id);
+                        }}
+                        className="text-3xl text-white text-right px-2 py-1"
+                      >
+                        ☆
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             </Link>
