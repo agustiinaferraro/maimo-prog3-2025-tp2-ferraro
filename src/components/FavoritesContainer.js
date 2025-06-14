@@ -16,7 +16,7 @@ const FavoritesContainer = () => {
           return (
             <div className='py-5' key={movie.id}>
               <Image
-                src={`https://image.tmdb.org/t/p/w500${movie.image}`}
+                src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                 alt={movie.title}
                 width={400}
                 height={200}
@@ -39,7 +39,7 @@ const FavoritesContainer = () => {
                     <button
                       onClick={(e) => {
                         e.preventDefault();
-                        handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
+                        handleAddToFavorites(movie.title, movie.image, movie.id);
                       }}
                       className="text-3xl text-white text-right px-2 py-1"
                     >
