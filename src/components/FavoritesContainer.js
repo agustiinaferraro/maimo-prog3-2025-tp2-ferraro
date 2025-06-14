@@ -13,16 +13,20 @@ const FavoritesContainer = () => {
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-10'>
         {favorites.map((movie) => {
           const isFavorite = favorites.some(fav => fav.id === movie.id);
+          const imageUrl = movie.backdrop_path
+            ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+            : '/fallback.jpg'; // imagen por defecto si no hay backdrop_path
 
           return (
             <div className='py-5' key={movie.id}>
-              <Image
-                src={`https://image.tmdb.org/t/p/w500${movie.image}`}
-                alt={movie.title}
-                width={400}
-                height={200}
-                style={{ borderRadius: '4px' }}
-              />
+              <div className="relative w-[400px] h-[225px]">
+                <Image
+                  src={imageUrl}
+                  alt={movie.title}
+                  fill
+                  className="object-cover rounded-md"
+                />
+              </div>
 
               <h2 className='text-white mt-2'>{movie.title}</h2>
 
@@ -33,7 +37,7 @@ const FavoritesContainer = () => {
                       e.preventDefault();
                       deleteToFavorites(movie.id);
                     }}
-                    className="text-2xl text-white px-2 py-1"
+                    className="text-2xl text-white text-right px-2 py-1"
                   >
                     ⭐
                   </button>
@@ -43,7 +47,7 @@ const FavoritesContainer = () => {
                       e.preventDefault();
                       handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
                     }}
-                    className="text-3xl text-white px-2 py-1"
+                    className="text-3xl text-white text-right px-2 py-1"
                   >
                     ☆
                   </button>
