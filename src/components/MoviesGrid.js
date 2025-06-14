@@ -90,7 +90,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                         e.preventDefault(); // evita que el click propague y active el Link
                         deleteToFavorites(movie.id);
                       }}
-                      className="text-white px-2 py-1"
+                      className="text-2xl text-white px-2 py-1"
                     >
                       ⭐
                     </button>
@@ -100,7 +100,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                         e.preventDefault(); // evita que el click propague y active el Link
                         handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
                       }}
-                      className="text-white px-2 py-1"
+                      className="text-2xl text-white px-2 py-1"
                     >
                       ☆
                     </button>
