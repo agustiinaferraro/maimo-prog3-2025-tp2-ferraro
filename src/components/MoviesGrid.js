@@ -103,7 +103,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                   <button
                     onClick={e => {
                       e.stopPropagation();
-                      handleAddToFavorites(movie.title, movie.image, movie.id);
+                    handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
                     }}
                     className="bg-white text-black px-2 py-1 rounded"
                   >
