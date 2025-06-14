@@ -7,9 +7,9 @@ const FavoritesContainer = () => {
   const { favorites } = useAppContext()
 
   return (
-  <div>
-    <h2 className='text-amber-50 w-3xl'>Favoritos</h2>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 p-20'>
+  <div className='p-20'>
+    <h2 className='text-amber-50 text-lg font-semibold mt-2'>Favoritos</h2>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2'>
         {favorites.map((movie) => (
           <div key={(movie.id)}>
             <Image
