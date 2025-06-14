@@ -7,7 +7,7 @@ import { useRef, useEffect, useState } from "react"; // useRef para la referenci
 import { useAppContext } from "@/app/context/AppContext";
 
 const MoviesGrid = ({ movies, useBackdrop = true }) => {
- const {handleAddToFavorites} = useAppContext()
+  const { favorites, handleAddToFavorites, deleteToFavorites } = useAppContext();
   const scrollRef = useRef(null); // referencia al contenedor scrollable
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true); // arranca en true porque hay contenido
@@ -45,8 +45,6 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
     router.push(`/movie/${id}`);
   };
 
-  
-
   return (
     <div className="relative w-full"> {/* contenedor padre para posicionar flechas */}
 
@@ -54,9 +52,9 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
       <button
         onClick={scrollLeft}
         disabled={!canScrollLeft}
-         className={`hidden sm:flex absolute left-0 top-0 bottom-0 z-10 w-12 items-center justify-center 
-         text-white hover:bg-black/30 transition-opacity duration-300 
-          ${canScrollLeft ? "hover:bg-black/30" : "opacity-20 cursor-default"}`}
+        className={`hidden sm:flex absolute left-0 top-0 bottom-0 z-10 w-12 items-center justify-center 
+        text-white hover:bg-black/30 transition-opacity duration-300 
+        ${canScrollLeft ? "hover:bg-black/30" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Left"
       >
         &#8592;
@@ -68,48 +66,63 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
         style={{
           touchAction: 'pan-x',
           overscrollBehaviorX: 'contain'
-        }}>
-        {movies.map((movie) => (
-          <div key={movie.id}
-            className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
-            onClick={() => handleMovieClick(movie.id)}
-          >
-            <Image
-              className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[400px] w-[350px]"} object-cover rounded-md`}
-              src={`https://image.tmdb.org/t/p/w500${useBackdrop ? movie.backdrop_path : movie.poster_path}`}
-              alt={movie.original_title}
-              width={useBackdrop ? 400 : 350}
-              height={useBackdrop ? 225 : 400}
-              priority
-            />
-            <div className="bg-black/60 p-2">
-              <ul>
-                <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
-              </ul>
-              
-            <button 
-              onClick={(e) => {
-                e.stopPropagation(); {/*esto es para que no afecte cuando se hace click*/}
-                handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
-              }}
-              className="bg-white text-black text-sm px-2 py-1 rounded cursor-pointer"
+        }}
+      >
+        {movies.map((movie) => {
+          const isFavorite = favorites.some(fav => fav.id === movie.id);
+
+          return (
+            <div key={movie.id}
+              className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+              onClick={() => handleMovieClick(movie.id)}
             >
-              Add to favorites
-            </button>
+              <Image
+                className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[400px] w-[350px]"} object-cover rounded-md`}
+                src={`https://image.tmdb.org/t/p/w500${useBackdrop ? movie.backdrop_path : movie.poster_path}`}
+                alt={movie.original_title}
+                width={useBackdrop ? 400 : 350}
+                height={useBackdrop ? 225 : 400}
+                priority
+              />
+              <div className="bg-black/60 p-2">
+                <ul>
+                  <li className="text-1xl text-white font-bold py-2">{movie.original_title}</li>
+                </ul>
 
-
+                {isFavorite ? (
+                  <button
+                    onClick={e => {
+                      e.stopPropagation();
+                      deleteToFavorites(movie.id);
+                    }}
+                    className="bg-red-500 text-white px-2 py-1 rounded"
+                  >
+                    Eliminar de favoritos
+                  </button>
+                ) : (
+                  <button
+                    onClick={e => {
+                      e.stopPropagation();
+                      handleAddToFavorites(movie.title, movie.image, movie.id);
+                    }}
+                    className="bg-white text-black px-2 py-1 rounded"
+                  >
+                    Agregar a favoritos
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Flecha derecha con sombra negra y deshabilitada si no se puede scrollear */}
       <button
         onClick={scrollRight}
         disabled={!canScrollRight}
-       className={`hidden sm:flex absolute right-0 top-0 bottom-0 z-10 w-12 items-center justify-center 
-       text-white hover:bg-black/50 transition-opacity duration-300 
-       ${canScrollRight ? "hover:bg-black/50" : "opacity-20 cursor-default"}`}
+        className={`hidden sm:flex absolute right-0 top-0 bottom-0 z-10 w-12 items-center justify-center 
+        text-white hover:bg-black/50 transition-opacity duration-300 
+        ${canScrollRight ? "hover:bg-black/50" : "opacity-20 cursor-default"}`}
         aria-label="Scroll Right"
       >
         &#8594;

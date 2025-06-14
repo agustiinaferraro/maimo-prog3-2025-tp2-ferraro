@@ -17,6 +17,11 @@ export const AppContextProvider = ({children}) => {
     setFavorites([...favorites, {title, image, id}])
    };
 
+   const deleteToFavorites = (borrar) => {
+    const newFavorites = favorites.filter(movie => movie.id !== borrar);  //el filter crea un nuevo array solo con las peliculas que cumplan con la condicion (todas las peliculas cuyo id sean distintos a "borrar")
+    setFavorites (newFavorites) //actualizo setfavorites
+   };
+
   const favoritesQty = () => favorites.length //ver cuantos favoritos hay
   return (
     <AppContext.Provider
@@ -32,6 +37,9 @@ export const AppContextProvider = ({children}) => {
   )
 
 }
+
+
+
 
 export const  useAppContext = () => {
     const context = useContext(AppContext)
