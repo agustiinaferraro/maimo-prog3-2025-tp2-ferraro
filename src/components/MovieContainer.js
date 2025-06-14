@@ -56,7 +56,7 @@ const MovieContainer = ({ movie }) => {
                           e.preventDefault(); // evita que el click propague y active el Link
                           handleAddToFavorites(movie.original_title, movie.backdrop_path, movie.id);
                         }}
-                        className="text-2xl text-white text-left px-2 py-1"
+                        className="text-3xl text-white text-left px-2 py-1"
                       >
                         ☆
                       </button>
