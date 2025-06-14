@@ -11,6 +11,8 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  
+  //const date = movie.release_date || movie.first_air_date || "Fecha no disponible";
 
   const checkScroll = () => {
     if (scrollRef.current) {
@@ -57,16 +59,18 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
         }}
       >
         {movies.map((movie) => {
+          const title = movie.original_title || movie.name || movie.original_name || "Sin título";
+
           const isFavorite = favorites.some(fav => fav.id === movie.id);
           const imagePath = useBackdrop ? movie.backdrop_path : movie.poster_path;
 
           return (
-            <Link href={movie.original_name ? `/tv/${movie.id}` : `/movie/${movie.id}`} key={movie.id}>
+            <Link href={movie.first_air_date ? `/tv/${movie.id}` : `/movie/${movie.id}`} key={movie.id}>
               <div className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer">
                 <Image
                   className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[400px] w-[350px]"} object-cover rounded-md`}
                   src={`https://image.tmdb.org/t/p/w500${imagePath}`}
-                  alt={movie.original_title}
+                  alt={title}
                   width={useBackdrop ? 400 : 350}
                   height={useBackdrop ? 225 : 400}
                   priority
@@ -74,7 +78,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                 <div className="bg-black/60 p-2">
                   <ul>
                     <li className="text-1xl text-white font-bold py-2">
-                      {movie.title || movie.name || movie.original_title || movie.original_name}
+                      {title}
                     </li>
 
                   </ul>
@@ -95,7 +99,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
                         onClick={(e) => {
                           e.preventDefault();
                           // Siempre pasar backdrop_path para que se guarde la imagen correcta en favoritos
-                          handleAddToFavorites(movie.title, movie.backdrop_path, movie.id);
+                          handleAddToFavorites(title, movie.backdrop_path, movie.id);
                         }}
                         className="text-3xl text-white text-right px-2 py-1 cursor-pointer"
                       >

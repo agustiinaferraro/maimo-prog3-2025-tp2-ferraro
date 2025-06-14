@@ -18,3 +18,5 @@ export default async function MoviePage({ params }) {
     </div>
   );
 }
+
+

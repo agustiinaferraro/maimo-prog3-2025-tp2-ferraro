@@ -1,0 +1,202 @@
+[33mf62a5e0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m atras
+[33ma51f932[m page tv movie container titulos 3
+[33mde33a6e[m page tv movie container titulos 2
+[33m17a16ff[m page tv movie container titulos
+[33m54200f5[m page tv movie container
+[33ma25e698[m page tv
+[33mca21dde[m titulos grilla
+[33m9306303[m titulos
+[33mae78d2c[m fetch real
+[33m4a7e7df[m back pointer
+[33mf28d245[m fav pointer
+[33mc781a51[m logo
+[33m86bc86b[m fondo img 10
+[33mffb9ffc[m fondo img 9
+[33m1d5e8b2[m fondo img 8
+[33md50e698[m fondo img 6
+[33m5658abf[m fondo img 6
+[33m3f58bfd[m fondo img 5
+[33mb7c32a7[m fondo img 4
+[33m1be252b[m fondo img 3
+[33m2b4af5f[m fondo img 2
+[33m6f7aaa1[m fondo img
+[33m08e4ac5[m saque div de favcontainer
+[33m698986c[m favcontainer imagen 3
+[33m2fb1370[m favcontainer imagen 2
+[33mbca5542[m favcontainer imagen
+[33mb937f2a[m favcontainer fav botones 3
+[33mb6adf7c[m favcontainer fav botones 2
+[33mf89aa43[m favcontainer fav botones
+[33mc6e5b01[m fav right
+[33m721e368[m fav moviecontainer taman
+[33m54365f9[m fav moviecontainer 2
+[33mae036b1[m fav moviecontainer
+[33m039767e[m favorite icon 4
+[33m95a1593[m favorite icon 3
+[33m25044fa[m favorite icon 2
+[33m80b867f[m favorite icon
+[33maab9e8b[m fav borrar 3
+[33m2942e52[m fav borrar 3
+[33m85fdc91[m fav borrar 2
+[33m0e3a355[m fav borrar
+[33ma7a7dc1[m favoritos tailwind 7
+[33m04e8ddf[m favoritos tailwind 6
+[33m48b93ad[m favoritos tailwind 5
+[33mf9b064d[m favoritos tailwind 4
+[33m503fb33[m favoritos tailwind 3
+[33mfa44fb2[m favoritos tailwind 2
+[33m6c2b48b[m favoritos tailwind
+[33m5c83c6c[m favoritos
+[33m77046b8[m boton add to favorites 8
+[33m8f93086[m boton add to favorites 7
+[33mec179df[m boton add to favorites 6
+[33mf627cdc[m boton add to favorites 4
+[33me63cdf6[m boton add to favorites 3
+[33m1a2e78e[m boton add to favorites 2
+[33m4d596a4[m boton add to favorites
+[33m95347e3[m fondo grilla
+[33md02d968[m favorites
+[33mf87eb69[m logo 4
+[33mee13f14[m logo 3
+[33m371bedc[m logo
+[33m1b80268[m padding nav
+[33m65a8211[m alto img 2
+[33m9020118[m alto img
+[33mc9a8a19[m logo
+[33m5c158b4[m py title 10
+[33mda5405f[m py title 9
+[33me79e5e2[m py title 8
+[33maaa5fb1[m py title 7
+[33m5986889[m py title 5
+[33m8be59fe[m py title 4
+[33m51ab29c[m py title 3
+[33m1a2ad03[m py title 2
+[33md1b779f[m py title
+[33mefd320b[m padding x justify coontent center
+[33mc6daf73[m globals css 7
+[33m38b7045[m globals css 6
+[33m327f17b[m globals css 4
+[33m9497b6d[m globals css 2
+[33m6e813cd[m globals css
+[33m37114df[m mobile 7
+[33m3f8b9d0[m mobile 6
+[33m8b8b272[m mobile 4
+[33m7d2f69b[m mobile 2
+[33mbcae70a[m mobile
+[33m8138645[m fondo img hero random 2
+[33mdd4dedd[m fondo img hero random
+[33mb707dca[m fondo img
+[33m3fc9080[m  flechas 9
+[33m12bd9a8[m  flechas 8
+[33m563871b[m  flechas 8
+[33m0c3b00d[m  flechas 7
+[33m189c518[m  flechas 6
+[33m6545655[m  flechas 5
+[33m2bc6a36[m  flechas 4
+[33m134d0b5[m  flechas 3
+[33m5f9cc87[m  flechas 2
+[33m58561d9[m hover flechas
+[33m0f039c2[m scroll horizontal con flechas
+[33m301c443[m scroll horizontal
+[33m59e6e7c[m slice en secciones 2
+[33m4f91ba6[m slice en secciones
+[33m5ce1aba[m click en moviesgrid 4
+[33m1e20cad[m click en moviesgrid 3
+[33m61d5d9d[m click en moviesgrid 2
+[33mc6af8d7[m click en moviesgrid
+[33md1a7dad[m nmovie container 6
+[33md7229f2[m nmovie container 4
+[33m4b47546[m nmovie container 3
+[33m2a9ba9a[m nmovie container 2
+[33ma6bdb9a[m nmovie container
+[33md2c54b1[m overflow x hidden contenedor principal en home container
+[33mfae39b7[m grid grilla 7
+[33m13a3977[m grid grilla 6
+[33m7667562[m grid grilla 5
+[33m1c72fa4[m grid grilla 4
+[33me3b3d1a[m grid grilla 3
+[33m181a1fd[m grid grilla 2
+[33mba10684[m grid grilla
+[33m16def90[m section fondo 7
+[33mc11681c[m section fondo 6
+[33m5689d6d[m section fondo 5
+[33m0c6da62[m section fondo 4
+[33m549c07d[m section fondo 3
+[33m4995b3f[m section fondo 2
+[33m74d64bb[m section fondo moviecontainer
+[33m67d8332[m click 4
+[33md479d1f[m click 3
+[33mc89edb3[m click 2
+[33maac9958[m click
+[33m449d858[m link a movies
+[33mb1f8078[m movies j
+[33mf94b67d[m movies
+[33mf32572c[m usefect import
+[33mbc0c74f[m usefect
+[33m1f69a42[m Descripción breve de los cambios
+[33m029c19f[m Descripción breve de los cambios
+[33m22ea771[m Hero
+[33mf26dc44[m hover 6
+[33m69c8f1d[m hover 5
+[33mdd02c95[m hover 4
+[33mdddd1b8[m hover 3
+[33me77105b[m hover 2
+[33m5101926[m hover
+[33m881c9f9[m prueba contendor pelis
+[33ma10eb1e[m prueba padding li
+[33mc61a383[m prueba back arriba
+[33m3727d3e[m contendor pelis
+[33m6f045b4[m ajustes baner
+[33mdd8110d[m ajuste contenedor peli
+[33m68bcf44[m ajuste banner
+[33md454ca8[m ajuste contenedor peli
+[33m013c533[m ajuste css y home
+[33m22e46d2[m texto movie
+[33m9a888fd[m footer
+[33m24c688f[m footer
+[33m1873b6f[m fondo
+[33maa6017e[m banner alto
+[33m1aa48e5[m cambio banner
+[33me208ae4[m mejoras diseno
+[33mfc12e8d[m ocrreccion app id api key
+[33m89e01ae[m tratando de solucionar errores
+[33m1a652db[m mejoras en moviecontainer
+[33m40c39e4[m ajuste tamano containermovie
+[33m54f76b1[m ajuste padding de la grilla y el loading
+[33m7ddd399[m agramde el padding y ajuste para mobile y desktop
+[33m2dc738d[m padding las mejores peliculas, efecto vidrio en grid
+[33m4578767[m padding titulo pelis y alto de las img
+[33m805f3f9[m disminui el tamano de la tipografia en la grilla
+[33m5818def[m cambios en el color de las peliculas texto
+[33m69e8e36[m prueba grilla cinco
+[33mcf4a44a[m prueba grilla cuatro
+[33m83ac6db[m prueba grilla tres
+[33ma67a4e2[m prueba de grilla dos
+[33m358e57e[m medidas y mas
+[33mc2fb063[m mejoras en el nav, color de fondo y padding
+[33m8e4c1cb[m correccion nav
+[33mcccd652[m saque los estilos de la page oficial
+[33ma25d33c[m trato de resolver lo del fondo
+[33mfa4eb9b[m saque el grid por ahora
+[33m397707a[m prueba grilla
+[33m373b6a7[m saque el full w a la seccion del banner
+[33m93fb230[m saque el margen inferior al nav
+[33mfcb2ebf[m saque el full w de la imagen
+[33m5916717[m full w en section del banner
+[33m7707338[m prueba banner saque el items center del main
+[33m666137e[m cambios banner
+[33mb209214[m prueba banner
+[33mb9386ee[m prueba tailwind
+[33m2d6a957[m volvi atras, no funciono lo de la img
+[33m503a45c[m prueba imagen cargada en moviecontainer
+[33m584fa12[m imagen de pelicula en homeContainer
+[33m435a597[m creacion de page en id
+[33m6c14088[m movie container detalles
+[33m971d3f9[m prueba link en grilla
+[33m53b3597[m Descripción breve de los cambios
+[33m653f96b[m prueba tailwind
+[33mf2ddade[m Descripción breve de los cambios
+[33mfe5df14[m contenido en homecontainer, page.js, moviesgrid
+[33m4f9bd84[m creacion de componentes homecontainer, moviecard, moviecontainer, moviescontainer, moviesgrid
+[33m0922077[m primer commit
+[33mcb664b4[m Initial commit from Create Next App

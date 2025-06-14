@@ -5,7 +5,6 @@ import axios from 'axios';
 import Loading from "./Loading"
 import MoviesGrid from "./MoviesGrid"
 import Hero from "./Hero";
-import Image from 'next/image'
 
 const HomeContainer = () => {
   const [movies, setMovie] = useState(null); //aca se guardan las respuestas de las peliculas

@@ -42,6 +42,7 @@ const MovieContainer = ({ movie }) => {
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={title}
               width={300} 
+              height={450}
               priority
             />
             <ul className=" text-white py-6 px-6">
