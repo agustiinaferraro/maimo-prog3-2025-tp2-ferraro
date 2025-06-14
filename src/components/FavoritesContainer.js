@@ -24,7 +24,6 @@ const FavoritesContainer = () => {
               />
               <h2 className='text-white'>{movie.title}</h2>
             
-              <div className="flex justify-end">
                   {isFavorite ? (
                     <button
                       onClick={(e) => {
@@ -46,8 +45,6 @@ const FavoritesContainer = () => {
                       ☆
                     </button>
                   )}
-                </div>
-
             </div>
           );
         })}
