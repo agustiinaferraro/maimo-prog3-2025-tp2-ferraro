@@ -25,7 +25,7 @@ const MovieContainer = ({ movie }) => {
       <div className=" h-full bg-black/60">
         <div className="w-[80%] max-w-5xl mx-auto ">
           <Link href="/">
-            <button className="text-7xl text-white py-6 hover:text-blue-500 active:text-blue-600" >
+            <button className="text-7xl text-white py-6 hover:text-blue-500 active:text-blue-600 cursor-pointer" >
               ‹
             </button>
           </Link>
