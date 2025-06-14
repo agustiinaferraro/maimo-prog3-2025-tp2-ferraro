@@ -61,7 +61,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
           const imagePath = useBackdrop ? movie.backdrop_path : movie.poster_path;
 
           return (
-            <Link href={`/movie/${movie.id}`} key={movie.id}>
+            <Link href={movie.original_name ? `/tv/${movie.id}` : `/movie/${movie.id}`} key={movie.id}>
               <div className="min-w-[250px] transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer">
                 <Image
                   className={`${useBackdrop ? "h-[225px] w-[400px]" : "h-[400px] w-[350px]"} object-cover rounded-md`}
