@@ -16,7 +16,7 @@ const FavoritesContainer = () => {
           return (
             <div className='py-5' key={movie.id}>
               <Image
-                src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w500${movie.image}`}
                 alt={movie.title}
                 width={400}
                 height={200}
