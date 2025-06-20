@@ -13,8 +13,8 @@ export const AppContextProvider = ({ children }) => {
   }, [favorites]) //este es el array
 
   //aca ver si es titile u origin title algo asi
-  const handleAddToFavorites = (title, image, id) => {
-    setFavorites([...favorites, { title, image, id }])
+  const handleAddToFavorites = (title, image, id, type) => {
+    setFavorites([...favorites, { title, image, id, type }])
   };
 
   const deleteToFavorites = (borrar) => {

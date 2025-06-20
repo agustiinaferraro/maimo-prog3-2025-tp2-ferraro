@@ -14,9 +14,9 @@ const FavoritesContainer = () => {
         {favorites.map((movie) => {
           const title = movie.title || "Sin título";
           const image = movie.image;
-
+console.log('typeeeeee',movie.type)
           return (
-            <Link href={title ? `/tv/${movie.id}` : `/movie/${movie.id}`} key={movie.id}>
+            <Link href={movie.type === 'tv' ? `/tv/${movie.id}` : `/movie/${movie.id}`} key={movie.id}>
               <div className='py-5 cursor-pointer'>
                 {image ? (
                   <Image

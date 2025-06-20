@@ -19,7 +19,6 @@ const Navbar = () => {
 
         <nav> 
             <ul className="flex gap-6 px-10 text-white-600">              
-              <li className=" hover:text-blue-500 active:text-blue-600">Generos</li>
               <li>
                 <Link href="/favorites">Favorites</Link>
               </li>
