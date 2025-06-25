@@ -6,6 +6,9 @@ const AppContext = createContext()
 export const AppContextProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
+  //estado para barra de busqueda global
+  const [searchTerm, setSearchTerm] = useState("");
+
   //aca va mi logica y funciones custom
 
   useEffect(() => {
@@ -30,7 +33,9 @@ export const AppContextProvider = ({ children }) => {
         favorites,
         handleAddToFavorites,
         deleteToFavorites, 
-        favoritesQty
+        favoritesQty,
+        searchTerm,       
+        setSearchTerm   
       }}
     >
       {children}

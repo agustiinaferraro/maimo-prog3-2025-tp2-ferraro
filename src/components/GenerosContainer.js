@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import { useAppContext } from "@/app/context/AppContext";
 
-const MoviesGrid = ({ movies, useBackdrop = true }) => {
+const GenerosContainer = ({ movies, useBackdrop = true }) => {
   const { favorites, handleAddToFavorites, deleteToFavorites } =
     useAppContext();
   const scrollRef = useRef(null);
@@ -61,10 +61,7 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
           overscrollBehaviorX: "contain",
         }}
       >
-        {movies
-        .filter((movie) => movie && (movie.backdrop_path || movie.poster_path))
-        .map((movie) => {
-
+        {movies.map((movie) => {
           const title =
             movie.original_title ||
             movie.name ||
@@ -154,4 +151,4 @@ const MoviesGrid = ({ movies, useBackdrop = true }) => {
   );
 };
 
-export default MoviesGrid;
+export default GenerosContainer;

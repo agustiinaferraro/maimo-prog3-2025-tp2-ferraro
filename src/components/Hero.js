@@ -1,49 +1,52 @@
 'use client'
 
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; 
 import Loading from "./Loading";
 import { useAppContext } from "@/app/context/AppContext";
 
-const Hero = ({movies}) => {
+const Hero = ({ movies }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const router = useRouter();
+  const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`;
+  const { favorites } = useAppContext();
 
-    const [featuredMovie, setFeaturedMovie] = useState(null);
-    const router = useRouter();
-    const IMAGE_BASE = `https://image.tmdb.org/t/p/original/`
-    const{favorites} = useAppContext()
-
-    const handleMovieClick= () => {
-      router.push(`/movie/${featuredMovie.id}`); //router es el objeto que maneja la navegacion y push cambia la ruta actual a la que se le pasa
-    }
-
-    useEffect(() => {
+  const handleMovieClick = () => {
     if (movies && movies.length > 0) {
-      const randomIndex = Math.floor(Math.random() * movies.length);
-      setFeaturedMovie(movies[randomIndex]);
+      router.push(`/movie/${movies[currentIndex].id}`);
     }
+  };
 
-    }, [movies]);
+  useEffect(() => {
+    if (!movies || movies.length === 0) return;
 
-    if (!featuredMovie) return <Loading />;  // Mostrar loading se cargan los datos
-    
-    return (
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % movies.length);
+    }, 3000); // cada 5 segundos
 
-    <section 
-    style=
-    {{backgroundImage: `url(${IMAGE_BASE}${featuredMovie.backdrop_path})`,
-    }} 
-    className={`w-full h-[600px] bg-cover bg-no-repeat bg-center cursor-pointer`}
-    onClick={handleMovieClick}
+    return () => clearInterval(interval); // limpia al desmontar
+  }, [movies]);
+
+  if (!movies || movies.length === 0) return <Loading />;
+
+  const featuredMovie = movies[currentIndex];
+
+  return (
+    <section
+      style={{
+        backgroundImage: `url(${IMAGE_BASE}${featuredMovie.backdrop_path})`,
+      }}
+      className="w-full h-[600px] bg-cover bg-no-repeat bg-center cursor-pointer"
+      onClick={handleMovieClick}
     >
-
-    <div className="text-white content h-full flex flex-col py-[280px] items-start px-[50px] bg-black/60">
+      <div className="text-white content h-full flex flex-col py-[280px] items-start px-[50px] bg-black/60 justify-center">
         <div className="content" onClick={handleMovieClick}>
-            <h2 className="text-5xl"> {featuredMovie.title} </h2>
-            <p className="max-w-[500px]"> {featuredMovie.overview} </p>
+          <h2 className="text-5xl font-bold">{featuredMovie.title}</h2>
+          <p className="max-w-[500px]">{featuredMovie.overview}</p>
         </div>
-    </div>
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
