@@ -22,14 +22,17 @@ const Hero = ({ movies }) => {
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % movies.length);
-    }, 3000); // cada 5 segundos
+    }, 3000);
 
-    return () => clearInterval(interval); // limpia al desmontar
+    return () => clearInterval(interval);
   }, [movies]);
 
   if (!movies || movies.length === 0) return <Loading />;
 
   const featuredMovie = movies[currentIndex];
+
+  // Si no existe backdrop_path mostramos Loading para evitar error
+  if (!featuredMovie?.backdrop_path) return <Loading />;
 
   return (
     <section
